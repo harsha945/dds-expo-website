@@ -1,0 +1,857 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>DDS EXPO — 100% AI-Driven Digital Marketing Agency</title>
+  <meta name="description" content="DDS Expo is an AI-driven digital marketing agency in Anakapalli, Andhra Pradesh. Ads, content, websites, lead funnels and automation executed with precision and speed.">
+
+  <!-- Google Fonts: Space Grotesk, Inter, JetBrains Mono -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=JetBrains+Mono:wght@400;500&family=Space+Grotesk:wght@500;600;700&display=swap" rel="stylesheet">
+
+  <link rel="icon" type="image/svg+xml" href="favicon.svg">
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body class="has-custom-cursor">
+
+  <!-- =========================================================================
+       CUSTOM CURSOR (Fine pointer desktop only)
+       ========================================================================= -->
+  <div class="cursor-container" aria-hidden="true">
+    <div class="cursor-dot" id="cursorDot"></div>
+    <div class="cursor-ring" id="cursorRing">
+      <span class="cursor-label" id="cursorLabel">VIEW</span>
+    </div>
+  </div>
+
+  <!-- =========================================================================
+       PRELOADER
+       ========================================================================= -->
+  <div class="preloader" id="preloader" role="progressbar" aria-label="Loading site assets" aria-valuenow="0" aria-valuemin="0" aria-valuemax="100">
+    <div class="preloader-brand">
+      <img src="assets/dds_logo.png" alt="DDS Expo" class="preloader-logo" width="138" height="28">
+      <span class="preloader-wordmark">DDS EXPO</span>
+    </div>
+    <div class="preloader-track">
+      <div class="preloader-bar" id="preloaderBar"></div>
+    </div>
+    <div class="preloader-meta">
+      <span class="mono-label">INITIALIZING AI TEAM</span>
+      <span id="preloaderCounter">000%</span>
+    </div>
+  </div>
+
+  <!-- =========================================================================
+       NAVIGATION
+       ========================================================================= -->
+  <header class="site-nav" id="siteNav">
+    <a href="#hero" class="nav-brand" data-cursor="HOME">
+      <img src="assets/dds_logo.png" alt="DDS Expo Logo" class="nav-logo" width="138" height="28">
+      <span class="nav-wordmark">DDS EXPO</span>
+    </a>
+
+    <button class="nav-mobile-toggle" id="navToggle" aria-label="Toggle navigation menu">
+      <span></span>
+      <span></span>
+    </button>
+
+    <nav>
+      <ul class="nav-links" id="navLinks">
+        <li><a href="#hero" class="nav-link" data-cursor="SCENE">Scenes</a></li>
+        <li><a href="#services" class="nav-link" data-cursor="EXPLORE">Services</a></li>
+        <li><a href="#results" class="nav-link" data-cursor="DATA">Results</a></li>
+        <li><a href="#faq" class="nav-link" data-cursor="READ">FAQ</a></li>
+        <li><a href="#contact" class="nav-link nav-cta" data-cursor="TALK">Contact</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <main id="mainContent">
+
+    <!-- =======================================================================
+         SECTION 1 — HERO (Pinned, ~500vh, frames/hero)
+         ======================================================================= -->
+    <section class="scene-wrapper" id="hero" data-scene="hero" style="height: 500vh;">
+      <div class="stage">
+        <canvas class="scene-canvas" id="canvas-hero" aria-label="Pearl-white AI robot greeting the visitor in a bright studio"></canvas>
+        
+        <!-- Left-edge HUD -->
+        <div class="stage-hud" aria-hidden="true">
+          <div class="stage-hud-item is-active">
+            <span class="stage-hud-tick"></span>
+            <span>01 / 07</span>
+          </div>
+          <div class="mono-label" style="font-size: 10px; margin-top: 4px;">HERO // AWAKE</div>
+        </div>
+
+        <!-- Chapter Overlays -->
+        <div class="stage-content-overlay">
+          <!-- Chapter 1: 0–12% -->
+          <div class="chapter-block active" id="hero-ch1">
+            <span class="mono-label">01 — AI TEAMMATE</span>
+            <div class="line-mask">
+              <h1 class="display-title display-title-huge line-inner">DDS EXPO</h1>
+            </div>
+            <p class="body-lead" style="margin-top: 8px;">Where AI meets marketing excellence.</p>
+            <div class="scroll-indicator-hint">
+              <span class="pulse-line"></span>
+              <span>SCROLL TO MEET YOUR AI TEAM</span>
+            </div>
+          </div>
+
+          <!-- Chapter 2: 25–42% -->
+          <div class="chapter-block" id="hero-ch2">
+            <span class="mono-label">AUTONOMOUS SPEED</span>
+            <div class="line-mask">
+              <h2 class="display-title line-inner">Meet your hardest-working teammate.</h2>
+            </div>
+            <p class="body-lead">AI analyzes market trends, competitor strategies, and user behavior in real time.</p>
+          </div>
+
+          <!-- Chapter 3: 52–70% -->
+          <div class="chapter-block" id="hero-ch3">
+            <span class="mono-label">ALWAYS ENGAGED</span>
+            <div class="line-mask">
+              <h2 class="display-title line-inner">It never sleeps.<br>It never misses.</h2>
+            </div>
+            <p class="body-lead">AI reduces costs, eliminates manual work, and scales your business effortlessly.</p>
+          </div>
+
+          <!-- Chapter 4: 80–100% -->
+          <div class="chapter-block" id="hero-ch4">
+            <span class="mono-label">THE FUTURE OF MARKETING</span>
+            <div class="line-mask">
+              <h2 class="display-title line-inner">100% AI-Driven<br>Digital Marketing</h2>
+            </div>
+            <div class="hero-badge-row">
+              <span>ADS</span> · <span>CONTENT</span> · <span>WEBSITES</span> · <span>LEADS</span> · <span>AUTOMATION</span>
+            </div>
+            <a href="#statement" class="chapter-link" data-cursor="EXPLORE">See what it does &darr;</a>
+          </div>
+        </div>
+
+        <!-- Bottom 1px Royal Progress Line -->
+        <div class="stage-progress-line" id="progress-hero"></div>
+      </div>
+    </section>
+
+    <!-- =======================================================================
+         SECTION 2 — STATEMENT (Not Pinned, 90vh, --mist)
+         ======================================================================= -->
+    <section class="section-statement" id="statement">
+      <div class="statement-container">
+        <span class="mono-label">02 — WHO WE ARE</span>
+        <blockquote class="statement-text" id="statementText">
+          <!-- Text rendered word by word with scroll reveal (10% to 100% opacity) -->
+          Imagine a world where your business scales effortlessly — every ad, campaign and strategy executed with precision, speed and intelligence.
+        </blockquote>
+      </div>
+    </section>
+
+    <!-- =======================================================================
+         SECTION 3 — WORK (Pinned, ~400vh, frames/work)
+         ======================================================================= -->
+    <section class="scene-wrapper" id="work" data-scene="work" style="height: 400vh;">
+      <div class="stage">
+        <canvas class="scene-canvas" id="canvas-work" aria-label="AI humanoid robot typing relentlessly on keyboard"></canvas>
+
+        <div class="stage-hud" aria-hidden="true">
+          <div class="stage-hud-item is-active">
+            <span class="stage-hud-tick"></span>
+            <span>02 / 07</span>
+          </div>
+          <div class="mono-label" style="font-size: 10px; margin-top: 4px;">WORK // ACTIVE</div>
+        </div>
+
+        <div class="stage-content-overlay">
+          <!-- Chapter 1: 10–40% -->
+          <div class="chapter-block" id="work-ch1">
+            <span class="mono-label">CONTINUOUS DISPATCH</span>
+            <div class="line-mask">
+              <h2 class="display-title line-inner">While you scroll,<br>it works.</h2>
+            </div>
+            <p class="body-lead">No manual errors, only flawless AI precision.</p>
+          </div>
+
+          <!-- Chapter 2: 55–90% -->
+          <div class="chapter-block" id="work-ch2">
+            <span class="mono-label">AI-POWERED SEO &middot; ADS &middot; ANALYTICS</span>
+            <div class="line-mask">
+              <h2 class="display-title line-inner">Real-time data.<br>Real-time decisions.</h2>
+            </div>
+            <p class="body-lead">AI understands your audience better than anyone, ensuring maximum ROI on every campaign.</p>
+          </div>
+        </div>
+
+        <div class="stage-progress-line" id="progress-work"></div>
+      </div>
+    </section>
+
+    <!-- =======================================================================
+         SECTION 4 — EXPLODED (Pinned, ~400vh, frames/exploded)
+         ======================================================================= -->
+    <section class="scene-wrapper" id="exploded" data-scene="exploded" style="height: 400vh;">
+      <div class="stage">
+        <canvas class="scene-canvas" id="canvas-exploded" aria-label="Keyboard and mouse separating into floating exploded parts"></canvas>
+
+        <div class="stage-hud" aria-hidden="true">
+          <div class="stage-hud-item is-active">
+            <span class="stage-hud-tick"></span>
+            <span>03 / 07</span>
+          </div>
+          <div class="mono-label" style="font-size: 10px; margin-top: 4px;">ANATOMY // 60FPS</div>
+        </div>
+
+        <div class="exploded-title">
+          <span class="mono-label">03 — SYSTEM ARCHITECTURE</span>
+          <div class="line-mask">
+            <h2 class="display-title line-inner">Every click, engineered.</h2>
+          </div>
+        </div>
+
+        <!-- SVG Line connectors -->
+        <svg class="callout-svg-lines" id="calloutSvgLines"></svg>
+
+        <!-- 4 Callouts at percentage coordinates -->
+        <div class="callout-overlay" id="explodedCallouts">
+          <!-- KEYS -->
+          <div class="exploded-callout" id="callout-keys" style="left: 28%; top: 26%;">
+            <div class="callout-dot"></div>
+            <div class="callout-card" style="transform: translate(-140px, -50px);">
+              <div class="callout-header">KEYS</div>
+              <div class="callout-desc">Every stroke intentional</div>
+            </div>
+          </div>
+
+          <!-- SHELL -->
+          <div class="exploded-callout" id="callout-shell" style="left: 26%; top: 74%;">
+            <div class="callout-dot"></div>
+            <div class="callout-card" style="transform: translate(-140px, 30px);">
+              <div class="callout-header">SHELL</div>
+              <div class="callout-desc">Lightweight by design</div>
+            </div>
+          </div>
+
+          <!-- SIGNAL -->
+          <div class="exploded-callout" id="callout-signal" style="left: 84%; top: 46%;">
+            <div class="callout-dot"></div>
+            <div class="callout-card" style="transform: translate(24px, -50px);">
+              <div class="callout-header">SIGNAL</div>
+              <div class="callout-desc">Zero-lag execution</div>
+            </div>
+          </div>
+
+          <!-- SENSOR -->
+          <div class="exploded-callout" id="callout-sensor" style="left: 83%; top: 76%;">
+            <div class="callout-dot"></div>
+            <div class="callout-card" style="transform: translate(24px, 30px);">
+              <div class="callout-header">SENSOR</div>
+              <div class="callout-desc">Pixel-perfect targeting</div>
+            </div>
+          </div>
+        </div>
+
+        <div class="stage-progress-line" id="progress-exploded"></div>
+      </div>
+    </section>
+
+    <!-- =======================================================================
+         SECTION 5 — ANALYTICS (Pinned, ~400vh, frames/analytics)
+         ======================================================================= -->
+    <section class="scene-wrapper" id="analytics" data-scene="analytics" style="height: 400vh;">
+      <div class="stage">
+        <canvas class="scene-canvas" id="canvas-analytics" aria-label="AI robot gesturing toward glowing holographic dashboard"></canvas>
+
+        <div class="stage-hud" aria-hidden="true">
+          <div class="stage-hud-item is-active">
+            <span class="stage-hud-tick"></span>
+            <span>04 / 07</span>
+          </div>
+          <div class="mono-label" style="font-size: 10px; margin-top: 4px;">DASHBOARD // SYNCED</div>
+        </div>
+
+        <div class="stage-content-overlay">
+          <!-- Chapter 1: 10–45% -->
+          <div class="chapter-block" id="analytics-ch1">
+            <span class="mono-label">TRANSPARENT METRICS</span>
+            <div class="line-mask">
+              <h2 class="display-title line-inner">Growth you<br>can see.</h2>
+            </div>
+            <p class="body-lead">AI-backed campaigns that guarantee higher conversions and lower ad costs.</p>
+          </div>
+
+          <!-- Chapter 2: 55–90% -->
+          <div class="chapter-block" id="analytics-ch2">
+            <span class="mono-label">AI-POWERED ANALYTICS</span>
+            <div class="line-mask">
+              <h2 class="display-title line-inner">Every move backed<br>by live data.</h2>
+            </div>
+            <p class="body-lead">Campaigns analyzed and updated every second for maximum performance.</p>
+          </div>
+        </div>
+
+        <div class="stage-progress-line" id="progress-analytics"></div>
+      </div>
+    </section>
+
+    <!-- =======================================================================
+         SECTION 6 — RESULTS (Not Pinned, --mist)
+         ======================================================================= -->
+    <section class="section-results" id="results">
+      <div class="section-header">
+        <span class="mono-label">06 — RESULTS</span>
+        <div class="line-mask">
+          <h2 class="display-title line-inner">Numbers our clients feel.</h2>
+        </div>
+      </div>
+
+      <div class="results-grid">
+        <!-- Stat 1 -->
+        <div class="result-card" data-cursor="METRIC">
+          <div class="result-number"><span class="counter" data-target="50" data-prefix="+">0</span>%</div>
+          <div class="result-title">Local Foot Traffic</div>
+          <div class="result-caption">Google Ads + location targeting</div>
+        </div>
+
+        <!-- Stat 2 -->
+        <div class="result-card" data-cursor="METRIC">
+          <div class="result-number"><span class="counter" data-target="3" data-prefix="">0</span>&times;</div>
+          <div class="result-title">Website Traffic</div>
+          <div class="result-caption">AI content engine</div>
+        </div>
+
+        <!-- Stat 3 -->
+        <div class="result-card" data-cursor="METRIC">
+          <div class="result-number"><span class="counter" data-target="30" data-prefix="+">0</span>%</div>
+          <div class="result-title">Sales via Chatbot</div>
+          <div class="result-caption">AI automation</div>
+        </div>
+
+        <!-- Stat 4 -->
+        <div class="result-card" data-cursor="METRIC">
+          <div class="result-number"><span class="counter" data-target="40" data-prefix="+">0</span>%</div>
+          <div class="result-title">Conversion Rates</div>
+          <div class="result-caption">AI lead funnels</div>
+        </div>
+      </div>
+
+      <p class="results-note">Results reported by DDS Expo clients.</p>
+    </section>
+
+    <!-- =======================================================================
+         SECTION 7 — ORBIT (Pinned, ~400vh, frames/orbit)
+         ======================================================================= -->
+    <section class="scene-wrapper" id="orbit" data-scene="orbit" style="height: 400vh;">
+      <div class="stage">
+        <canvas class="scene-canvas" id="canvas-orbit" aria-label="Social media icons and digital creative assets orbiting robot palm"></canvas>
+
+        <div class="stage-hud" aria-hidden="true">
+          <div class="stage-hud-item is-active">
+            <span class="stage-hud-tick"></span>
+            <span>05 / 07</span>
+          </div>
+          <div class="mono-label" style="font-size: 10px; margin-top: 4px;">ORBIT // CREATIVE</div>
+        </div>
+
+        <div class="stage-content-overlay">
+          <!-- Chapter 1: 10–45% -->
+          <div class="chapter-block" id="orbit-ch1">
+            <span class="mono-label">ENDLESS PRODUCTION</span>
+            <div class="line-mask">
+              <h2 class="display-title line-inner">Content that<br>never stops.</h2>
+            </div>
+            <p class="body-lead">Stunning, high-quality creatives designed effectively using AI.</p>
+          </div>
+
+          <!-- Chapter 2: 55–90% -->
+          <div class="chapter-block" id="orbit-ch2">
+            <span class="mono-label">AI CREATIVES</span>
+            <div class="line-mask">
+              <h2 class="display-title line-inner">Creatives, posters, reels —<br>on brand, on time.</h2>
+            </div>
+            <p class="body-lead">Engaging, professional-grade content created in seconds with AI precision.</p>
+          </div>
+        </div>
+
+        <div class="stage-progress-line" id="progress-orbit"></div>
+      </div>
+    </section>
+
+    <!-- =======================================================================
+         SECTION 8 — SERVICES (Not Pinned, White)
+         ======================================================================= -->
+    <section class="section-services" id="services">
+      <div class="section-header">
+        <span class="mono-label">08 — SERVICES</span>
+        <div class="line-mask">
+          <h2 class="display-title line-inner">Six ways AI grows your business.</h2>
+        </div>
+      </div>
+
+      <div class="services-grid">
+        <!-- 1. AI Creatives -->
+        <article class="service-card" data-cursor="SERVICE">
+          <div class="service-icon-box">
+            <!-- Palette/Design vector icon -->
+            <svg viewBox="0 0 24 24" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M12 2a10 10 0 0 0-10 10c0 4.418 3.582 8 8 8 1.105 0 2-.895 2-2 0-.497-.184-.951-.486-1.3-.3-.348-.486-.8-.486-1.3 0-1.105.895-2 2-2h2c3.314 0 6-2.686 6-6 0-5.523-4.14-9.4-7.028-9.4z"/>
+              <circle cx="7.5" cy="8.5" r="1.5" fill="var(--royal)"/>
+              <circle cx="12" cy="6.5" r="1.5" fill="var(--royal)"/>
+              <circle cx="16.5" cy="8.5" r="1.5" fill="var(--royal)"/>
+            </svg>
+          </div>
+          <h3 class="service-title">AI Creatives</h3>
+          <p class="service-desc">Stunning, high-quality flyers &amp; graphics designed effectively using AI.</p>
+        </article>
+
+        <!-- 2. AI Videos -->
+        <article class="service-card" data-cursor="SERVICE">
+          <div class="service-icon-box">
+            <!-- Video/Filmstrip vector icon -->
+            <svg viewBox="0 0 24 24" stroke-linecap="round" stroke-linejoin="round">
+              <rect x="2" y="4" width="20" height="16" rx="2"/>
+              <path d="M10 9l5 3-5 3V9z"/>
+            </svg>
+          </div>
+          <h3 class="service-title">AI Videos</h3>
+          <p class="service-desc">Engaging, professional-grade videos created in seconds with AI precision.</p>
+        </article>
+
+        <!-- 3. AI Websites -->
+        <article class="service-card" data-cursor="SERVICE">
+          <div class="service-icon-box">
+            <!-- Web/Browser layout icon -->
+            <svg viewBox="0 0 24 24" stroke-linecap="round" stroke-linejoin="round">
+              <rect x="3" y="3" width="18" height="18" rx="2"/>
+              <line x1="3" y1="9" x2="21" y2="9"/>
+              <line x1="9" y1="21" x2="9" y2="9"/>
+            </svg>
+          </div>
+          <h3 class="service-title">AI Websites</h3>
+          <p class="service-desc">SEO-optimized, high-converting content crafted by AI for blogs, ads &amp; websites.</p>
+        </article>
+
+        <!-- 4. AI Branding -->
+        <article class="service-card" data-cursor="SERVICE">
+          <div class="service-icon-box">
+            <!-- Diamond/Identity icon -->
+            <svg viewBox="0 0 24 24" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M6 3h12l4 6-10 12L2 9l4-6z"/>
+              <line x1="2" y1="9" x2="22" y2="9"/>
+              <line x1="12" y1="3" x2="8" y2="9"/>
+              <line x1="12" y1="3" x2="16" y2="9"/>
+            </svg>
+          </div>
+          <h3 class="service-title">AI Branding</h3>
+          <p class="service-desc">AI-driven logos, brand identity &amp; strategy to make your business stand out.</p>
+        </article>
+
+        <!-- 5. AI Leads -->
+        <article class="service-card" data-cursor="SERVICE">
+          <div class="service-icon-box">
+            <!-- Funnel/Target icon -->
+            <svg viewBox="0 0 24 24" stroke-linecap="round" stroke-linejoin="round">
+              <polygon points="22 3 2 3 10 12.46 10 19 14 21 14 12.46 22 3"/>
+            </svg>
+          </div>
+          <h3 class="service-title">AI Leads</h3>
+          <p class="service-desc">Smart AI-powered lead funnels that attract &amp; convert high-quality leads.</p>
+        </article>
+
+        <!-- 6. AI Automations -->
+        <article class="service-card" data-cursor="SERVICE">
+          <div class="service-icon-box">
+            <!-- Circuit/Gear/Automation icon -->
+            <svg viewBox="0 0 24 24" stroke-linecap="round" stroke-linejoin="round">
+              <rect x="2" y="6" width="6" height="6" rx="1"/>
+              <rect x="16" y="6" width="6" height="6" rx="1"/>
+              <rect x="9" y="14" width="6" height="6" rx="1"/>
+              <path d="M5 12v2a2 2 0 0 0 2 2h2"/>
+              <path d="M19 12v2a2 2 0 0 1-2 2h-2"/>
+              <line x1="12" y1="12" x2="12" y2="14"/>
+            </svg>
+          </div>
+          <h3 class="service-title">AI Automations</h3>
+          <p class="service-desc">AI-powered workflow &amp; marketing automation for efficiency and growth.</p>
+        </article>
+      </div>
+    </section>
+
+    <!-- =======================================================================
+         SECTION 9 — SITEBUILDER (Pinned, ~400vh, frames/sitebuilder)
+         ======================================================================= -->
+    <section class="scene-wrapper" id="sitebuilder" data-scene="sitebuilder" style="height: 400vh;">
+      <div class="stage">
+        <canvas class="scene-canvas" id="canvas-sitebuilder" aria-label="AI humanoid assembling interactive website components mid-air"></canvas>
+
+        <div class="stage-hud" aria-hidden="true">
+          <div class="stage-hud-item is-active">
+            <span class="stage-hud-tick"></span>
+            <span>06 / 07</span>
+          </div>
+          <div class="mono-label" style="font-size: 10px; margin-top: 4px;">SYSTEMS // ASSEMBLED</div>
+        </div>
+
+        <div class="stage-content-overlay">
+          <!-- Chapter 1: 10–45% -->
+          <div class="chapter-block" id="sitebuilder-ch1">
+            <span class="mono-label">DYNAMIC COMPOSITION</span>
+            <div class="line-mask">
+              <h2 class="display-title line-inner">Websites that<br>build themselves.</h2>
+            </div>
+            <p class="body-lead">SEO-optimized, high-converting websites crafted by AI.</p>
+          </div>
+
+          <!-- Chapter 2: 55–90% -->
+          <div class="chapter-block" id="sitebuilder-ch2">
+            <span class="mono-label">AI WEBSITES</span>
+            <div class="line-mask">
+              <h2 class="display-title line-inner">Designed, written and<br>optimized by AI.</h2>
+            </div>
+            <p class="body-lead">AI analyzes industry trends, competitors, and audience preferences to generate SEO-optimized content within minutes.</p>
+          </div>
+        </div>
+
+        <div class="stage-progress-line" id="progress-sitebuilder"></div>
+      </div>
+    </section>
+
+    <!-- =======================================================================
+         SECTION 10 — WHY US (Not Pinned, --mist)
+         ======================================================================= -->
+    <section class="section-why" id="why-us">
+      <div class="section-header" style="max-width: 1180px; margin: 0 auto clamp(40px, 6vh, 64px) auto;">
+        <span class="mono-label">10 — WHY DDS EXPO</span>
+        <div class="line-mask">
+          <h2 class="display-title line-inner">Why businesses choose us.</h2>
+        </div>
+      </div>
+
+      <div class="why-rows">
+        <div class="why-row" data-cursor="FACT">
+          <span class="why-num">01</span>
+          <h3 class="why-heading">100% AI-Driven Execution</h3>
+          <p class="why-desc">No manual errors, only flawless AI precision.</p>
+        </div>
+
+        <div class="why-row" data-cursor="FACT">
+          <span class="why-num">02</span>
+          <h3 class="why-heading">Affordable &amp; Scalable</h3>
+          <p class="why-desc">Premium AI marketing at a fraction of traditional agency retainers and cost.</p>
+        </div>
+
+        <div class="why-row" data-cursor="FACT">
+          <span class="why-num">03</span>
+          <h3 class="why-heading">Proven Success</h3>
+          <p class="why-desc">AI-backed campaigns with higher conversions and lower ad costs.</p>
+        </div>
+
+        <div class="why-row" data-cursor="FACT">
+          <span class="why-num">04</span>
+          <h3 class="why-heading">AI-Backed Decisions</h3>
+          <p class="why-desc">Every move is based on AI-driven data and trends, ensuring consistent growth.</p>
+        </div>
+
+        <div class="why-row" data-cursor="FACT">
+          <span class="why-num">05</span>
+          <h3 class="why-heading">Real-Time Adjustments</h3>
+          <p class="why-desc">Campaigns analyzed and updated every second for maximum performance.</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- =======================================================================
+         SECTION 11 — AUTOMATION (Pinned, ~400vh, frames/automation)
+         ======================================================================= -->
+    <section class="scene-wrapper" id="automation" data-scene="automation" style="height: 400vh;">
+      <div class="stage">
+        <canvas class="scene-canvas" id="canvas-automation" aria-label="AI robot interacting with expanding ring of instant chat conversations"></canvas>
+
+        <div class="stage-hud" aria-hidden="true">
+          <div class="stage-hud-item is-active">
+            <span class="stage-hud-tick"></span>
+            <span>07 / 07</span>
+          </div>
+          <div class="mono-label" style="font-size: 10px; margin-top: 4px;">AUTOMATION // INSTANT</div>
+        </div>
+
+        <div class="stage-content-overlay">
+          <!-- Chapter 1: 10–45% -->
+          <div class="chapter-block" id="automation-ch1">
+            <span class="mono-label">ALWAYS RESPONSIVE</span>
+            <div class="line-mask">
+              <h2 class="display-title line-inner">Conversations<br>that convert.</h2>
+            </div>
+            <p class="body-lead">AI-powered workflow and marketing automation for efficiency and growth.</p>
+          </div>
+
+          <!-- Chapter 2: 55–90% -->
+          <div class="chapter-block" id="automation-ch2">
+            <span class="mono-label">AI AUTOMATIONS</span>
+            <div class="line-mask">
+              <h2 class="display-title line-inner">Leads answered<br>in seconds, 24/7.</h2>
+            </div>
+            <p class="body-lead">Smart chatbots and automated lead capture that answer queries 24/7.</p>
+          </div>
+        </div>
+
+        <div class="stage-progress-line" id="progress-automation"></div>
+      </div>
+    </section>
+
+    <!-- =======================================================================
+         SECTION 12 — TESTIMONIALS (Not Pinned, White)
+         ======================================================================= -->
+    <section class="section-testimonials" id="testimonials">
+      <div class="testimonials-container">
+        <div class="section-header">
+          <span class="mono-label">12 — CLIENTS</span>
+          <div class="line-mask">
+            <h2 class="display-title line-inner">What they are saying about us.</h2>
+          </div>
+        </div>
+      </div>
+
+      <div class="testimonials-carousel-wrapper">
+        <div class="testimonials-track" id="testimonialTrack" data-cursor="DRAG">
+          <!-- Testimonial 1 -->
+          <div class="testimonial-card">
+            <p class="testimonial-quote">&ldquo;Thanks to DDS Expo&rsquo;s AI-driven Google Ads and location-based targeting, our local foot traffic increased by 50% in just two months!&rdquo;</p>
+            <div class="testimonial-author">
+              <span class="testimonial-name">Mr. Arjun</span>
+              <span class="testimonial-city">Visakhapatnam</span>
+            </div>
+          </div>
+
+          <!-- Testimonial 2 -->
+          <div class="testimonial-card">
+            <p class="testimonial-quote">&ldquo;AI-generated content suggestions and automated blog scheduling have kept our audience engaged, and our website traffic has tripled!&rdquo;</p>
+            <div class="testimonial-author">
+              <span class="testimonial-name">Ritika</span>
+              <span class="testimonial-city">Hyderabad</span>
+            </div>
+          </div>
+
+          <!-- Testimonial 3 -->
+          <div class="testimonial-card">
+            <p class="testimonial-quote">&ldquo;DDS Expo set up an AI chatbot for our eCommerce website. It answers queries 24/7 and has increased our sales by 30%!&rdquo;</p>
+            <div class="testimonial-author">
+              <span class="testimonial-name">Mr. Vikram</span>
+              <span class="testimonial-city">Delhi</span>
+            </div>
+          </div>
+
+          <!-- Testimonial 4 -->
+          <div class="testimonial-card">
+            <p class="testimonial-quote">&ldquo;After implementing AI-driven marketing strategies, our conversion rates shot up by 40% in just three months!&rdquo;</p>
+            <div class="testimonial-author">
+              <span class="testimonial-name">Mr. Rahul</span>
+              <span class="testimonial-city">Pune</span>
+            </div>
+          </div>
+
+          <!-- Testimonial 5 -->
+          <div class="testimonial-card">
+            <p class="testimonial-quote">&ldquo;Now our engagement has doubled, and our ad ROI has improved by 300%. The AI insights are spot on!&rdquo;</p>
+            <div class="testimonial-author">
+              <span class="testimonial-name">Neha</span>
+              <span class="testimonial-city">Vizag</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- =======================================================================
+         SECTION 13 — FAQ (Not Pinned, --mist)
+         ======================================================================= -->
+    <section class="section-faq" id="faq">
+      <div class="faq-container">
+        <div class="section-header">
+          <span class="mono-label">13 — FAQ</span>
+          <div class="line-mask">
+            <h2 class="display-title line-inner">Frequently asked questions.</h2>
+          </div>
+        </div>
+
+        <div class="faq-list" role="region" aria-label="FAQ Accordion">
+          <!-- FAQ 1 -->
+          <div class="faq-item">
+            <button class="faq-question" aria-expanded="false">
+              <span>What makes AI-powered digital marketing different from traditional marketing?</span>
+              <span class="faq-icon" aria-hidden="true">+</span>
+            </button>
+            <div class="faq-answer">
+              <div class="faq-answer-inner">
+                AI automates campaigns, optimizes ads in real time, generates high-quality content instantly, and improves targeting accuracy — leading to better results with less effort.
+              </div>
+            </div>
+          </div>
+
+          <!-- FAQ 2 -->
+          <div class="faq-item">
+            <button class="faq-question" aria-expanded="false">
+              <span>How does AI create content, videos, and branding?</span>
+              <span class="faq-icon" aria-hidden="true">+</span>
+            </button>
+            <div class="faq-answer">
+              <div class="faq-answer-inner">
+                AI analyzes industry trends, competitors, and audience preferences to generate SEO-optimized content, eye-catching creatives, and professional branding assets within minutes.
+              </div>
+            </div>
+          </div>
+
+          <!-- FAQ 3 -->
+          <div class="faq-item">
+            <button class="faq-question" aria-expanded="false">
+              <span>Can AI-generated content rank on Google?</span>
+              <span class="faq-icon" aria-hidden="true">+</span>
+            </button>
+            <div class="faq-answer">
+              <div class="faq-answer-inner">
+                Absolutely! AI tools ensure that all content follows SEO best practices, using the right keywords, structure, and optimization techniques to boost search rankings.
+              </div>
+            </div>
+          </div>
+
+          <!-- FAQ 4 -->
+          <div class="faq-item">
+            <button class="faq-question" aria-expanded="false">
+              <span>How does AI help in lead generation?</span>
+              <span class="faq-icon" aria-hidden="true">+</span>
+            </button>
+            <div class="faq-answer">
+              <div class="faq-answer-inner">
+                AI tracks user behavior, analyzes demographics, and automates lead capture via smart forms, chatbots, and AI-powered ad targeting — ensuring high-quality leads.
+              </div>
+            </div>
+          </div>
+
+          <!-- FAQ 5 -->
+          <div class="faq-item">
+            <button class="faq-question" aria-expanded="false">
+              <span>How secure is AI-driven marketing automation?</span>
+              <span class="faq-icon" aria-hidden="true">+</span>
+            </button>
+            <div class="faq-answer">
+              <div class="faq-answer-inner">
+                We use industry-standard encryption &amp; GDPR-compliant AI tools to protect client data while automating marketing processes.
+              </div>
+            </div>
+          </div>
+
+          <!-- FAQ 6 -->
+          <div class="faq-item">
+            <button class="faq-question" aria-expanded="false">
+              <span>Can AI help with personalized marketing campaigns?</span>
+              <span class="faq-icon" aria-hidden="true">+</span>
+            </button>
+            <div class="faq-answer">
+              <div class="faq-answer-inner">
+                Yes! AI analyzes customer behavior and delivers highly personalized ads, emails, and content, leading to higher engagement and conversions.
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- =======================================================================
+         SECTION 14 — CONTACT CTA (100vh, White)
+         ======================================================================= -->
+    <section class="section-cta" id="contact">
+      <div class="cta-box">
+        <span class="mono-label">14 — CONTACT</span>
+        <div class="line-mask">
+          <h2 class="display-title line-inner" style="margin-top: 14px;">Let&rsquo;s grow your business.</h2>
+        </div>
+        <p class="body-lead">Talk to the DDS Expo team — we reply fast.</p>
+        <div class="cta-buttons">
+          <a href="https://wa.me/919966994679" target="_blank" rel="noopener noreferrer" class="btn-royal" data-cursor="WHATSAPP">
+            <span>CHAT ON WHATSAPP</span>
+          </a>
+          <a href="tel:+919966994679" class="btn-outline-royal" data-cursor="CALL">
+            <span>CALL +91 99669 94679</span>
+          </a>
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <!-- =========================================================================
+       FOOTER (Deep Navy #012970, White Text)
+       ========================================================================= -->
+  <footer class="site-footer">
+    <div class="footer-top">
+      <div class="footer-brand">
+        <span class="footer-wordmark">DDS EXPO</span>
+        <p class="footer-tagline">Where AI Meets Marketing Excellence!</p>
+      </div>
+
+      <div>
+        <h4 class="footer-col-title">Scenes</h4>
+        <ul class="footer-nav-list">
+          <li><a href="#hero" class="footer-nav-link" data-cursor="GO">01 Hero</a></li>
+          <li><a href="#work" class="footer-nav-link" data-cursor="GO">02 Work</a></li>
+          <li><a href="#exploded" class="footer-nav-link" data-cursor="GO">03 Anatomy</a></li>
+          <li><a href="#analytics" class="footer-nav-link" data-cursor="GO">04 Analytics</a></li>
+          <li><a href="#orbit" class="footer-nav-link" data-cursor="GO">05 Orbit</a></li>
+          <li><a href="#sitebuilder" class="footer-nav-link" data-cursor="GO">06 Builder</a></li>
+          <li><a href="#automation" class="footer-nav-link" data-cursor="GO">07 Automation</a></li>
+        </ul>
+      </div>
+
+      <div>
+        <h4 class="footer-col-title">Services</h4>
+        <ul class="footer-nav-list">
+          <li><a href="#services" class="footer-nav-link" data-cursor="VIEW">AI Creatives</a></li>
+          <li><a href="#services" class="footer-nav-link" data-cursor="VIEW">AI Videos</a></li>
+          <li><a href="#services" class="footer-nav-link" data-cursor="VIEW">AI Websites</a></li>
+          <li><a href="#services" class="footer-nav-link" data-cursor="VIEW">AI Branding</a></li>
+          <li><a href="#services" class="footer-nav-link" data-cursor="VIEW">AI Leads</a></li>
+          <li><a href="#services" class="footer-nav-link" data-cursor="VIEW">AI Automation</a></li>
+        </ul>
+      </div>
+
+      <div>
+        <h4 class="footer-col-title">Company</h4>
+        <ul class="footer-nav-list">
+          <li><a href="#statement" class="footer-nav-link" data-cursor="READ">About Us</a></li>
+          <li><a href="#results" class="footer-nav-link" data-cursor="READ">Results</a></li>
+          <li><a href="#why-us" class="footer-nav-link" data-cursor="READ">Why Choose Us</a></li>
+          <li><a href="#testimonials" class="footer-nav-link" data-cursor="READ">Testimonials</a></li>
+          <li><a href="#faq" class="footer-nav-link" data-cursor="READ">FAQ</a></li>
+          <li><a href="#contact" class="footer-nav-link" data-cursor="TALK">Contact Us</a></li>
+        </ul>
+      </div>
+
+      <div>
+        <h4 class="footer-col-title">Headquarters</h4>
+        <div class="footer-contact-details">
+          <p>#1-1-46, Rajupalem, Ramalayam Street, Anakapalli, Visakhapatnam, Andhra Pradesh 531019</p>
+          <p>
+            <a href="tel:+919966994679">+91 9966994679</a><br>
+            <a href="tel:+919618231993">+91 9618231993</a>
+          </p>
+          <p>
+            <a href="mailto:info@ddsexpo.com">info@ddsexpo.com</a><br>
+            <a href="mailto:careers@ddsexpo.com">careers@ddsexpo.com</a>
+          </p>
+        </div>
+      </div>
+    </div>
+
+    <div class="footer-bottom">
+      <span>&copy; 2026 DDS Expo Pvt Ltd. All rights reserved.</span>
+      <span>ANAKAPALLI &middot; VISAKHAPATNAM &middot; ANDHRA PRADESH &middot; INDIA</span>
+    </div>
+  </footer>
+
+  <!-- Scripts: config first, then main logic -->
+  <script src="config.js"></script>
+  <script src="main.js"></script>
+</body>
+</html>

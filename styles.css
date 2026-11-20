@@ -1,0 +1,1518 @@
+/* ==========================================================================
+   DDS EXPO — Stylesheet
+   Bright, Clean, Futuristic, Trustworthy AI-Driven Digital Marketing Agency
+   ========================================================================== */
+
+/* --------------------------------------------------------------------------
+   1. CSS Reset & Variables
+   -------------------------------------------------------------------------- */
+:root {
+  --paper: #FFFFFF;
+  --mist: #F3F6FE;
+  --navy: #012970;
+  --ink-soft: #41507A;
+  --royal: #4154F1;
+  --sky: #2DB6FA;
+  --hairline: rgba(1, 41, 112, 0.12);
+  --hairline-light: rgba(1, 41, 112, 0.08);
+  --shadow-soft: 0 20px 60px rgba(1, 41, 112, 0.08);
+  --shadow-hover: 0 24px 64px rgba(1, 41, 112, 0.12);
+
+  --font-display: 'Space Grotesk', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+  --font-body: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+  --font-mono: 'JetBrains Mono', monospace;
+
+  --ease-out: cubic-bezier(0.16, 1, 0.3, 1);
+  --transition-smooth: 0.6s var(--ease-out);
+
+  --header-height: 72px;
+}
+
+*, *::before, *::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html {
+  font-family: var(--font-body);
+  color: var(--ink-soft);
+  background-color: var(--paper);
+  overflow-x: clip; /* Critical: never overflow:hidden on ancestors of sticky elements */
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+body {
+  overflow-x: clip;
+  background-color: var(--paper);
+  color: var(--ink-soft);
+  line-height: 1.6;
+  position: relative;
+  min-height: 100vh;
+}
+
+/* Custom selection */
+::selection {
+  background-color: var(--royal);
+  color: #FFFFFF;
+}
+
+/* --------------------------------------------------------------------------
+   2. Typography Helpers
+   -------------------------------------------------------------------------- */
+.mono-label {
+  font-family: var(--font-mono);
+  font-size: 11px;
+  font-weight: 500;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--royal);
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.mono-label-sky {
+  color: var(--sky);
+}
+
+.mono-label::before {
+  content: '';
+  display: inline-block;
+  width: 6px;
+  height: 6px;
+  background-color: currentColor;
+}
+
+.display-title {
+  font-family: var(--font-display);
+  font-weight: 600;
+  color: var(--navy);
+  text-transform: uppercase;
+  letter-spacing: 0.01em;
+  line-height: 1.05;
+  font-size: clamp(32px, 5vw, 68px);
+}
+
+.display-title-huge {
+  font-size: clamp(36px, 6vw, 104px);
+}
+
+.body-lead {
+  font-size: clamp(16px, 1.2vw, 18px);
+  color: var(--ink-soft);
+  max-width: 56ch;
+  line-height: 1.6;
+}
+
+.line-mask {
+  overflow: hidden;
+  display: block;
+}
+
+.line-inner {
+  display: block;
+  transform: translateY(100%);
+  transition: transform 0.9s var(--ease-out);
+}
+
+.revealed .line-inner,
+.line-inner.revealed,
+.in-view .line-inner,
+.active-chapter .line-inner,
+.chapter-block.active .line-inner {
+  transform: translateY(0%);
+}
+
+/* --------------------------------------------------------------------------
+   3. Custom Cursor (Fine pointer desktop only)
+   -------------------------------------------------------------------------- */
+@media (pointer: fine) {
+  body.has-custom-cursor,
+  body.has-custom-cursor a,
+  body.has-custom-cursor button,
+  body.has-custom-cursor [role="button"] {
+    cursor: none !important;
+  }
+}
+
+.cursor-container {
+  display: none;
+  pointer-events: none;
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: 99999;
+}
+
+@media (pointer: fine) {
+  .cursor-container {
+    display: block;
+  }
+}
+
+.cursor-dot {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 6px;
+  height: 6px;
+  background-color: var(--royal);
+  border-radius: 50%;
+  pointer-events: none;
+  transform: translate(-50%, -50%);
+  transition: opacity 0.2s, background-color 0.12s;
+  z-index: 100001;
+}
+
+.cursor-ring {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 28px;
+  height: 28px;
+  border: 1px solid var(--royal);
+  border-radius: 50%;
+  pointer-events: none;
+  transform: translate(-50%, -50%);
+  transition: width 0.3s var(--ease-out), height 0.3s var(--ease-out), border-radius 0.3s var(--ease-out), background-color 0.12s, border-color 0.12s, opacity 0.2s;
+  z-index: 100000;
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+}
+
+.cursor-label {
+  font-family: var(--font-mono);
+  font-size: 10px;
+  font-weight: 500;
+  letter-spacing: 0.1em;
+  color: var(--royal);
+  text-transform: uppercase;
+  margin-left: 52px;
+  white-space: nowrap;
+  opacity: 0;
+  transform: translateX(-4px);
+  transition: opacity 0.2s var(--ease-out), transform 0.2s var(--ease-out);
+}
+
+/* Hover morph state: 44x2px horizontal royal bar with label */
+.cursor-ring.is-hovering {
+  width: 44px;
+  height: 2px;
+  background-color: var(--royal);
+  border-color: var(--royal);
+  border-radius: 1px;
+}
+
+.cursor-ring.is-hovering .cursor-label {
+  opacity: 1;
+  transform: translateX(0);
+}
+
+.cursor-dot.is-hovering {
+  opacity: 0;
+}
+
+/* Mousedown brightening effect */
+.cursor-ring.is-down,
+.cursor-dot.is-down {
+  background-color: var(--sky);
+  border-color: var(--sky);
+}
+
+/* --------------------------------------------------------------------------
+   4. Preloader
+   -------------------------------------------------------------------------- */
+.preloader {
+  position: fixed;
+  inset: 0;
+  background-color: var(--paper);
+  z-index: 10000;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  transition: opacity 0.7s var(--ease-out), visibility 0.7s var(--ease-out);
+}
+
+.preloader.loaded {
+  opacity: 0;
+  visibility: hidden;
+  pointer-events: none;
+}
+
+.preloader-brand {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  margin-bottom: 32px;
+}
+
+.preloader-logo {
+  height: 32px;
+  width: auto;
+}
+
+.preloader-wordmark {
+  font-family: var(--font-display);
+  font-size: 28px;
+  font-weight: 600;
+  color: var(--navy);
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+}
+
+.preloader-track {
+  width: 240px;
+  height: 1px;
+  background-color: var(--hairline);
+  position: relative;
+  overflow: visible;
+  margin-bottom: 16px;
+}
+
+.preloader-bar {
+  position: absolute;
+  top: 0;
+  left: 50%;
+  width: 0%;
+  height: 1px;
+  background-color: var(--royal);
+  transform: translateX(-50%);
+  transition: width 0.1s linear;
+}
+
+.preloader-meta {
+  font-family: var(--font-mono);
+  font-size: 11px;
+  color: var(--royal);
+  letter-spacing: 0.12em;
+  display: flex;
+  gap: 12px;
+}
+
+/* --------------------------------------------------------------------------
+   5. Fixed Navigation
+   -------------------------------------------------------------------------- */
+.site-nav {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: var(--header-height);
+  z-index: 1000;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0 clamp(20px, 4vw, 48px);
+  background-color: transparent;
+  border-bottom: 1px solid transparent;
+  transition: background-color 0.4s var(--ease-out), border-color 0.4s var(--ease-out), transform 0.4s var(--ease-out);
+}
+
+.site-nav.is-scrolled {
+  background-color: var(--paper);
+  border-bottom: 1px solid var(--hairline);
+}
+
+.site-nav.is-hidden {
+  transform: translateY(-100%);
+}
+
+.nav-brand {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  text-decoration: none;
+  color: var(--navy);
+}
+
+.nav-logo {
+  height: 28px;
+  width: auto;
+  object-fit: contain;
+}
+
+.nav-wordmark {
+  font-family: var(--font-display);
+  font-size: 20px;
+  font-weight: 600;
+  letter-spacing: 0.02em;
+  text-transform: uppercase;
+}
+
+.nav-links {
+  display: flex;
+  align-items: center;
+  gap: clamp(16px, 2.5vw, 36px);
+  list-style: none;
+}
+
+.nav-link {
+  font-family: var(--font-mono);
+  font-size: 11px;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--navy);
+  text-decoration: none;
+  position: relative;
+  padding: 8px 0;
+  transition: color 0.2s;
+}
+
+.nav-link::after {
+  content: '';
+  position: absolute;
+  bottom: 4px;
+  left: 0;
+  width: 0;
+  height: 1px;
+  background-color: var(--royal);
+  transition: width 0.3s var(--ease-out);
+}
+
+.nav-link:hover {
+  color: var(--royal);
+}
+
+.nav-link:hover::after {
+  width: 100%;
+}
+
+.nav-cta {
+  border: 1px solid var(--royal);
+  padding: 7px 16px;
+  color: var(--royal);
+  transition: all 0.25s var(--ease-out);
+}
+
+.nav-cta::after {
+  display: none;
+}
+
+.nav-cta:hover {
+  background-color: var(--royal);
+  color: #FFFFFF !important;
+}
+
+/* Mobile Nav Toggle */
+.nav-mobile-toggle {
+  display: none;
+  background: none;
+  border: none;
+  padding: 8px;
+  flex-direction: column;
+  gap: 5px;
+  cursor: pointer;
+}
+
+.nav-mobile-toggle span {
+  width: 22px;
+  height: 1px;
+  background-color: var(--navy);
+  transition: transform 0.3s var(--ease-out);
+}
+
+@media (max-width: 860px) {
+  .nav-mobile-toggle {
+    display: flex;
+  }
+  .nav-links {
+    position: fixed;
+    top: var(--header-height);
+    left: 0;
+    right: 0;
+    background: var(--paper);
+    border-bottom: 1px solid var(--hairline);
+    flex-direction: column;
+    align-items: flex-start;
+    padding: 24px 32px;
+    gap: 20px;
+    display: none;
+  }
+  .nav-links.is-open {
+    display: flex;
+  }
+}
+
+/* --------------------------------------------------------------------------
+   6. Pinned Scrollytelling Architecture (All 7 Robot Scenes)
+   -------------------------------------------------------------------------- */
+.scene-wrapper {
+  position: relative;
+  width: 100%;
+  background-color: var(--paper);
+}
+
+.stage {
+  position: sticky;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100vh;
+  height: 100svh;
+  overflow: hidden;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: var(--paper);
+}
+
+.scene-canvas {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  display: block;
+  transition: opacity 0.3s ease;
+}
+
+/* Section Bottom Progress Line (1px royal line) */
+.stage-progress-line {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  height: 1px;
+  background-color: var(--royal);
+  transform-origin: left;
+  transform: scaleX(0);
+  z-index: 50;
+  pointer-events: none;
+}
+
+/* Left-Edge HUD in Mono */
+.stage-hud {
+  position: absolute;
+  left: clamp(20px, 4vw, 48px);
+  top: 50%;
+  transform: translateY(-50%);
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  z-index: 40;
+  pointer-events: none;
+}
+
+.stage-hud-item {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  font-family: var(--font-mono);
+  font-size: 11px;
+  color: var(--hairline);
+  letter-spacing: 0.12em;
+  transition: color 0.3s var(--ease-out);
+}
+
+.stage-hud-tick {
+  width: 4px;
+  height: 4px;
+  background-color: transparent;
+  transition: background-color 0.3s var(--ease-out), transform 0.3s var(--ease-out);
+}
+
+.stage-hud-item.is-active {
+  color: var(--royal);
+}
+
+.stage-hud-item.is-active .stage-hud-tick {
+  background-color: var(--sky);
+  transform: scale(1.5);
+}
+
+/* Stage Overlay Content / Chapter Text Container */
+.stage-content-overlay {
+  position: absolute;
+  inset: 0;
+  z-index: 30;
+  pointer-events: none;
+  padding: clamp(20px, 5vw, 64px) clamp(24px, 6vw, 80px);
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.chapter-block {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  left: clamp(48px, 10vw, 120px);
+  max-width: min(620px, 46vw);
+  opacity: 0;
+  visibility: hidden;
+  pointer-events: none;
+  /* Outgoing chapters clear fast (0.28s) so they never ghost under the next one. */
+  transition: opacity 0.28s var(--ease-out), visibility 0.28s var(--ease-out);
+  /* Flat soft-white panel keeps text readable over the robot footage. */
+  background: rgba(255, 255, 255, 0.82);
+  border: 1px solid var(--hairline);
+  border-radius: 12px;
+  padding: 28px 32px;
+  box-shadow: 0 20px 60px rgba(1, 41, 112, 0.08);
+}
+
+.chapter-block.active {
+  opacity: 1;
+  visibility: visible;
+  pointer-events: auto;
+  /* Incoming chapter waits for the outgoing one to finish clearing (0.22s hold). */
+  transition: opacity 0.55s var(--ease-out) 0.22s, visibility 0.55s var(--ease-out) 0.22s;
+}
+
+.chapter-block .mono-label {
+  margin-bottom: 20px;
+}
+
+.chapter-block .display-title {
+  margin-bottom: 16px;
+}
+
+.chapter-block .body-lead {
+  margin-bottom: 24px;
+}
+
+@media (orientation: portrait), (max-width: 768px) {
+  .stage-content-overlay {
+    padding: 24px 20px;
+  }
+
+  .chapter-block {
+    left: 20px;
+    right: 20px;
+    top: auto;
+    bottom: clamp(24px, 5vh, 48px);
+    transform: none;
+    max-width: 100%;
+    padding: 20px 22px;
+  }
+
+  .chapter-block .display-title {
+    font-size: clamp(26px, 6.5vw, 40px);
+    margin-bottom: 10px;
+  }
+
+  .chapter-block .body-lead {
+    font-size: 14px;
+    line-height: 1.5;
+    margin-bottom: 12px;
+  }
+
+  .stage-hud {
+    left: 16px;
+    top: 90px;
+    transform: none;
+  }
+
+  .exploded-title {
+    top: 80px;
+    left: 20px;
+  }
+}
+
+.scroll-indicator-hint {
+  display: inline-flex;
+  align-items: center;
+  gap: 12px;
+  font-family: var(--font-mono);
+  font-size: 11px;
+  letter-spacing: 0.12em;
+  color: var(--royal);
+  margin-top: 28px;
+}
+
+.pulse-line {
+  display: inline-block;
+  width: 32px;
+  height: 1px;
+  background-color: var(--royal);
+  animation: pulse-horizontal 2s infinite ease-in-out;
+}
+
+@keyframes pulse-horizontal {
+  0%, 100% { transform: scaleX(0.4); opacity: 0.4; }
+  50% { transform: scaleX(1); opacity: 1; }
+}
+
+.chapter-link {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  font-family: var(--font-mono);
+  font-size: 12px;
+  letter-spacing: 0.12em;
+  color: var(--royal);
+  text-decoration: none;
+  font-weight: 500;
+  margin-top: 16px;
+  position: relative;
+}
+
+.chapter-link::after {
+  content: '';
+  position: absolute;
+  bottom: -2px;
+  left: 0;
+  width: 100%;
+  height: 1px;
+  background-color: var(--royal);
+  transition: transform 0.3s var(--ease-out);
+  transform-origin: left;
+}
+
+.chapter-link:hover::after {
+  transform: scaleX(0.7);
+}
+
+/* --------------------------------------------------------------------------
+   7. Section 1 — Hero Specifics
+   -------------------------------------------------------------------------- */
+#hero .hero-badge-row {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px 16px;
+  font-family: var(--font-mono);
+  font-size: 11px;
+  letter-spacing: 0.1em;
+  color: var(--navy);
+  margin: 18px 0 24px 0;
+}
+
+#hero .hero-badge-row span {
+  opacity: 0.85;
+}
+
+/* --------------------------------------------------------------------------
+   8. Section 2 — Statement (Not Pinned, 90vh, --mist)
+   -------------------------------------------------------------------------- */
+.section-statement {
+  min-height: 90vh;
+  background-color: var(--mist);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: clamp(60px, 10vh, 120px) clamp(20px, 6vw, 100px);
+  text-align: center;
+  position: relative;
+}
+
+.statement-container {
+  max-width: 1120px;
+  margin: 0 auto;
+}
+
+.statement-text {
+  font-family: var(--font-display);
+  font-size: clamp(32px, 4.5vw, 68px);
+  font-weight: 500;
+  line-height: 1.22;
+  color: var(--navy);
+  letter-spacing: 0.01em;
+  text-transform: uppercase;
+  margin-top: 28px;
+}
+
+/* Word-by-word reveal: each word 10% -> 100% opacity driven by scroll */
+.statement-word {
+  display: inline-block;
+  opacity: 0.1;
+  transition: opacity 0.2s ease-out;
+  margin-right: 0.24em;
+}
+
+/* --------------------------------------------------------------------------
+   9. Section 4 — Exploded Callouts
+   -------------------------------------------------------------------------- */
+.exploded-title {
+  position: absolute;
+  top: clamp(80px, 12vh, 120px);
+  left: clamp(24px, 6vw, 80px);
+  z-index: 35;
+}
+
+.callout-overlay {
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  z-index: 35;
+}
+
+.exploded-callout {
+  position: absolute;
+  opacity: 0;
+  transform: translateY(10px);
+  transition: opacity 0.6s var(--ease-out), transform 0.6s var(--ease-out);
+  pointer-events: auto;
+}
+
+.exploded-callout.is-visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.callout-dot {
+  position: absolute;
+  width: 8px;
+  height: 8px;
+  background-color: var(--royal);
+  border-radius: 50%;
+  top: 0;
+  left: 0;
+  transform: translate(-50%, -50%);
+  box-shadow: 0 0 0 4px rgba(45, 182, 250, 0.25);
+}
+
+.callout-card {
+  position: absolute;
+  background: #FFFFFF;
+  border: 1px solid var(--hairline);
+  padding: 12px 18px;
+  border-radius: 4px;
+  box-shadow: var(--shadow-soft);
+  min-width: 220px;
+  max-width: 260px;
+}
+
+.callout-header {
+  font-family: var(--font-mono);
+  font-size: 11px;
+  letter-spacing: 0.12em;
+  color: var(--royal);
+  font-weight: 500;
+  margin-bottom: 4px;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.callout-desc {
+  font-family: var(--font-body);
+  font-size: 13px;
+  color: var(--ink-soft);
+  line-height: 1.4;
+}
+
+/* SVG Line Canvas for Exploded Callouts */
+.callout-svg-lines {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  pointer-events: none;
+  z-index: 34;
+  opacity: 0;
+  transition: opacity 0.6s var(--ease-out);
+}
+
+.callout-svg-lines.is-visible {
+  opacity: 1;
+}
+
+.callout-svg-lines line {
+  stroke: var(--royal);
+  stroke-width: 1px;
+  stroke-dasharray: 4 2;
+  opacity: 0.8;
+}
+
+/* --------------------------------------------------------------------------
+   10. Section 6 — Results (Not Pinned, --mist)
+   -------------------------------------------------------------------------- */
+.section-results {
+  background-color: var(--mist);
+  padding: clamp(80px, 12vh, 140px) clamp(20px, 6vw, 80px);
+}
+
+.section-header {
+  max-width: 900px;
+  margin-bottom: clamp(40px, 6vh, 64px);
+}
+
+.section-header .mono-label {
+  margin-bottom: 16px;
+}
+
+.results-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 24px;
+  max-width: 1320px;
+  margin: 0 auto 32px auto;
+}
+
+.result-card {
+  background-color: #FFFFFF;
+  border: 1px solid var(--hairline);
+  border-radius: 16px;
+  padding: clamp(28px, 3.5vw, 44px) 24px;
+  box-shadow: var(--shadow-soft);
+  transition: transform 0.4s var(--ease-out), box-shadow 0.4s var(--ease-out);
+  display: flex;
+  flex-direction: column;
+}
+
+.result-card:hover {
+  transform: translateY(-4px);
+  box-shadow: var(--shadow-hover);
+}
+
+.result-number {
+  font-family: var(--font-display);
+  font-size: clamp(40px, 4.5vw, 68px);
+  font-weight: 600;
+  color: var(--royal);
+  line-height: 1.05;
+  margin-bottom: 14px;
+}
+
+.result-title {
+  font-family: var(--font-display);
+  font-size: 16px;
+  font-weight: 600;
+  color: var(--navy);
+  text-transform: uppercase;
+  margin-bottom: 10px;
+}
+
+.result-caption {
+  font-family: var(--font-mono);
+  font-size: 11px;
+  letter-spacing: 0.08em;
+  color: var(--royal);
+  text-transform: uppercase;
+  margin-top: auto;
+}
+
+.results-note {
+  max-width: 1320px;
+  margin: 0 auto;
+  font-size: 13px;
+  color: var(--ink-soft);
+  opacity: 0.8;
+  text-align: right;
+}
+
+@media (max-width: 1024px) {
+  .results-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (max-width: 580px) {
+  .results-grid {
+    grid-template-columns: 1fr;
+  }
+}
+
+/* --------------------------------------------------------------------------
+   11. Section 8 — Services (Not Pinned, White)
+   -------------------------------------------------------------------------- */
+.section-services {
+  background-color: var(--paper);
+  padding: clamp(80px, 12vh, 140px) clamp(20px, 6vw, 80px);
+}
+
+.services-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 28px;
+  max-width: 1320px;
+  margin: 0 auto;
+}
+
+.service-card {
+  background-color: #FFFFFF;
+  border: 1px solid var(--hairline);
+  border-radius: 16px;
+  padding: clamp(32px, 3.5vw, 44px) clamp(24px, 2.5vw, 36px);
+  box-shadow: var(--shadow-soft);
+  transition: transform 0.4s var(--ease-out), box-shadow 0.4s var(--ease-out), border-color 0.4s var(--ease-out);
+  opacity: 0;
+  transform: translateY(40px);
+}
+
+.service-card.is-visible {
+  opacity: 1;
+  transform: translateY(0);
+  transition: opacity 0.8s var(--ease-out), transform 0.8s var(--ease-out);
+}
+
+.service-card:hover {
+  transform: translateY(-6px);
+  box-shadow: var(--shadow-hover);
+  border-color: rgba(65, 84, 241, 0.35);
+}
+
+.service-icon-box {
+  width: 48px;
+  height: 48px;
+  border: 1px solid var(--hairline);
+  border-radius: 10px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 24px;
+  color: var(--royal);
+  background-color: rgba(65, 84, 241, 0.04);
+}
+
+.service-icon-box svg {
+  width: 24px;
+  height: 24px;
+  stroke: var(--royal);
+  stroke-width: 1.75;
+  fill: none;
+}
+
+.service-title {
+  font-family: var(--font-display);
+  font-size: 22px;
+  font-weight: 600;
+  color: var(--navy);
+  text-transform: uppercase;
+  margin-bottom: 14px;
+  letter-spacing: 0.01em;
+}
+
+.service-desc {
+  font-size: 15px;
+  color: var(--ink-soft);
+  line-height: 1.6;
+}
+
+@media (max-width: 1024px) {
+  .services-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (max-width: 640px) {
+  .services-grid {
+    grid-template-columns: 1fr;
+  }
+}
+
+/* --------------------------------------------------------------------------
+   12. Section 10 — Why Us (Not Pinned, --mist)
+   -------------------------------------------------------------------------- */
+.section-why {
+  background-color: var(--mist);
+  padding: clamp(80px, 12vh, 140px) clamp(20px, 6vw, 80px);
+}
+
+.why-rows {
+  max-width: 1180px;
+  margin: 0 auto;
+  border-top: 1px solid var(--hairline);
+}
+
+.why-row {
+  display: grid;
+  grid-template-columns: 80px 1.4fr 1.6fr;
+  align-items: baseline;
+  gap: 32px;
+  padding: clamp(28px, 4vh, 40px) 12px;
+  border-bottom: 1px solid var(--hairline);
+  transition: background-color 0.25s var(--ease-out);
+}
+
+.why-row:hover {
+  background-color: rgba(255, 255, 255, 0.6);
+}
+
+.why-num {
+  font-family: var(--font-mono);
+  font-size: 13px;
+  letter-spacing: 0.12em;
+  color: var(--royal);
+  font-weight: 500;
+}
+
+.why-heading {
+  font-family: var(--font-display);
+  font-size: clamp(20px, 2.2vw, 26px);
+  font-weight: 600;
+  color: var(--navy);
+  text-transform: uppercase;
+  letter-spacing: 0.01em;
+}
+
+.why-desc {
+  font-size: 16px;
+  color: var(--ink-soft);
+  line-height: 1.6;
+}
+
+@media (max-width: 768px) {
+  .why-row {
+    grid-template-columns: 1fr;
+    gap: 10px;
+    padding: 24px 0;
+  }
+}
+
+/* --------------------------------------------------------------------------
+   13. Section 12 — Testimonials (Not Pinned, White)
+   -------------------------------------------------------------------------- */
+.section-testimonials {
+  background-color: var(--paper);
+  padding: clamp(80px, 12vh, 140px) 0;
+  overflow: hidden;
+}
+
+.testimonials-container {
+  padding: 0 clamp(20px, 6vw, 80px);
+  margin-bottom: 36px;
+}
+
+.testimonials-carousel-wrapper {
+  position: relative;
+  width: 100%;
+}
+
+.testimonials-track {
+  display: flex;
+  gap: 24px;
+  overflow-x: auto;
+  scroll-snap-type: x mandatory;
+  padding: 20px clamp(20px, 6vw, 80px) 40px clamp(20px, 6vw, 80px);
+  -webkit-overflow-scrolling: touch;
+  scrollbar-width: none;
+  cursor: grab;
+}
+
+.testimonials-track::-webkit-scrollbar {
+  display: none;
+}
+
+.testimonials-track:active {
+  cursor: grabbing;
+}
+
+.testimonial-card {
+  flex: 0 0 clamp(320px, 32vw, 420px);
+  background-color: #FFFFFF;
+  border: 1px solid var(--hairline);
+  border-radius: 16px;
+  padding: 36px 32px;
+  box-shadow: var(--shadow-soft);
+  scroll-snap-align: start;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  min-height: 280px;
+  transition: transform 0.3s var(--ease-out), box-shadow 0.3s var(--ease-out);
+}
+
+.testimonial-card:hover {
+  transform: translateY(-4px);
+  box-shadow: var(--shadow-hover);
+}
+
+.testimonial-quote {
+  font-size: 16px;
+  color: var(--navy);
+  line-height: 1.65;
+  margin-bottom: 28px;
+}
+
+.testimonial-author {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+  border-top: 1px solid var(--hairline);
+  padding-top: 16px;
+}
+
+.testimonial-name {
+  font-family: var(--font-display);
+  font-size: 15px;
+  font-weight: 600;
+  color: var(--navy);
+  text-transform: uppercase;
+}
+
+.testimonial-city {
+  font-family: var(--font-mono);
+  font-size: 11px;
+  letter-spacing: 0.1em;
+  color: var(--royal);
+}
+
+/* --------------------------------------------------------------------------
+   14. Section 13 — FAQ (Not Pinned, --mist)
+   -------------------------------------------------------------------------- */
+.section-faq {
+  background-color: var(--mist);
+  padding: clamp(80px, 12vh, 140px) clamp(20px, 6vw, 80px);
+}
+
+.faq-container {
+  max-width: 980px;
+  margin: 0 auto;
+}
+
+.faq-list {
+  border-top: 1px solid var(--hairline);
+}
+
+.faq-item {
+  border-bottom: 1px solid var(--hairline);
+}
+
+.faq-question {
+  width: 100%;
+  text-align: left;
+  background: none;
+  border: none;
+  padding: clamp(22px, 3vh, 32px) 0;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 20px;
+  cursor: pointer;
+  font-family: var(--font-display);
+  font-size: clamp(17px, 1.8vw, 22px);
+  font-weight: 500;
+  color: var(--navy);
+  transition: color 0.25s var(--ease-out);
+}
+
+.faq-question:hover {
+  color: var(--royal);
+}
+
+.faq-icon {
+  font-family: var(--font-mono);
+  font-size: 18px;
+  color: var(--royal);
+  flex-shrink: 0;
+  width: 24px;
+  height: 24px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: transform 0.4s var(--ease-out);
+}
+
+.faq-item.is-open .faq-icon {
+  transform: rotate(45deg);
+}
+
+.faq-answer {
+  max-height: 0;
+  overflow: hidden;
+  transition: max-height 0.5s var(--ease-out);
+}
+
+.faq-answer-inner {
+  padding-bottom: clamp(20px, 3vh, 30px);
+  font-size: 16px;
+  color: var(--ink-soft);
+  line-height: 1.65;
+  max-width: 80ch;
+}
+
+/* --------------------------------------------------------------------------
+   15. Section 14 — Contact CTA (100vh, White)
+   -------------------------------------------------------------------------- */
+.section-cta {
+  min-height: 100vh;
+  min-height: 100svh;
+  background-color: var(--paper);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  padding: 60px clamp(20px, 6vw, 80px);
+  position: relative;
+}
+
+.cta-box {
+  max-width: 900px;
+  margin: 0 auto;
+}
+
+.cta-box .display-title {
+  margin-bottom: 18px;
+}
+
+.cta-box .body-lead {
+  margin: 0 auto 40px auto;
+}
+
+.cta-buttons {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 20px;
+  justify-content: center;
+}
+
+.btn-royal {
+  background-color: var(--royal);
+  color: #FFFFFF;
+  border: 1px solid var(--royal);
+  padding: 16px 36px;
+  font-family: var(--font-mono);
+  font-size: 12px;
+  font-weight: 500;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  text-decoration: none;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  transition: background-color 0.25s var(--ease-out), transform 0.25s var(--ease-out);
+}
+
+.btn-royal:hover {
+  background-color: #3144d4;
+  transform: translateY(-2px);
+}
+
+.btn-outline-royal {
+  background-color: transparent;
+  color: var(--royal);
+  border: 1px solid var(--royal);
+  padding: 16px 36px;
+  font-family: var(--font-mono);
+  font-size: 12px;
+  font-weight: 500;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  text-decoration: none;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  transition: background-color 0.25s var(--ease-out), color 0.25s var(--ease-out), transform 0.25s var(--ease-out);
+}
+
+.btn-outline-royal:hover {
+  background-color: var(--royal);
+  color: #FFFFFF !important;
+  transform: translateY(-2px);
+}
+
+/* --------------------------------------------------------------------------
+   16. Footer (Deep Navy #012970, White Text)
+   -------------------------------------------------------------------------- */
+.site-footer {
+  background-color: var(--navy);
+  color: #FFFFFF;
+  padding: clamp(70px, 10vh, 110px) clamp(20px, 6vw, 80px) 40px clamp(20px, 6vw, 80px);
+}
+
+.footer-top {
+  display: grid;
+  grid-template-columns: 2fr 1fr 1fr 1fr 2fr;
+  gap: 40px;
+  max-width: 1320px;
+  margin: 0 auto 60px auto;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.15);
+  padding-bottom: 60px;
+}
+
+.footer-brand {
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+}
+
+.footer-wordmark {
+  font-family: var(--font-display);
+  font-size: 24px;
+  font-weight: 600;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+  color: #FFFFFF;
+}
+
+.footer-tagline {
+  font-size: 14px;
+  color: rgba(255, 255, 255, 0.7);
+  line-height: 1.5;
+  max-width: 32ch;
+}
+
+.footer-col-title {
+  font-family: var(--font-mono);
+  font-size: 11px;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--sky);
+  margin-bottom: 18px;
+}
+
+.footer-nav-list {
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.footer-nav-link {
+  font-family: var(--font-mono);
+  font-size: 11px;
+  letter-spacing: 0.08em;
+  color: rgba(255, 255, 255, 0.75);
+  text-decoration: none;
+  transition: color 0.2s;
+}
+
+.footer-nav-link:hover {
+  color: #FFFFFF;
+}
+
+.footer-contact-details {
+  font-size: 13px;
+  color: rgba(255, 255, 255, 0.75);
+  line-height: 1.65;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.footer-contact-details a {
+  color: rgba(255, 255, 255, 0.85);
+  text-decoration: none;
+  transition: color 0.2s;
+}
+
+.footer-contact-details a:hover {
+  color: var(--sky);
+}
+
+.footer-bottom {
+  max-width: 1320px;
+  margin: 0 auto;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  font-family: var(--font-mono);
+  font-size: 11px;
+  letter-spacing: 0.08em;
+  color: rgba(255, 255, 255, 0.5);
+}
+
+@media (max-width: 1024px) {
+  .footer-top {
+    grid-template-columns: 1fr 1fr;
+    gap: 36px;
+  }
+}
+
+@media (max-width: 640px) {
+  .footer-top {
+    grid-template-columns: 1fr;
+  }
+  .footer-bottom {
+    flex-direction: column;
+    gap: 12px;
+    text-align: center;
+  }
+}
+
+/* --------------------------------------------------------------------------
+   17. Accessibility & Focus States
+   -------------------------------------------------------------------------- */
+:focus-visible {
+  outline: 2px solid var(--royal);
+  outline-offset: 3px;
+}
+
+/* prefers-reduced-motion: no pinning, static frame display, simple fade */
+@media (prefers-reduced-motion: reduce) {
+  * {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
+
+  .scene-wrapper {
+    height: auto !important;
+  }
+
+  .stage {
+    position: relative !important;
+    height: 70vh !important;
+  }
+
+  .cursor-container {
+    display: none !important;
+  }
+
+  body {
+    cursor: auto !important;
+  }
+
+  .chapter-block {
+    position: relative;
+    top: auto;
+    left: auto;
+    transform: none;
+    opacity: 1 !important;
+    visibility: visible !important;
+    margin: 40px auto;
+    padding: 20px;
+  }
+}
+
+/* --------------------------------------------------------------------------
+   Late mobile overrides (must follow the base callout rules to win order)
+   -------------------------------------------------------------------------- */
+@media (orientation: portrait), (max-width: 768px) {
+  .callout-overlay {
+    display: flex;
+    flex-wrap: wrap;
+    align-content: flex-end;
+    gap: 8px;
+    padding: 0 16px 20px;
+  }
+
+  .exploded-callout {
+    position: static;
+    width: calc(50% - 4px);
+  }
+
+  .callout-card {
+    position: static;
+    min-width: 0;
+    max-width: none;
+    width: 100%;
+    padding: 8px 10px;
+    transform: none !important; /* override per-card inline desktop offsets */
+  }
+
+  .callout-dot,
+  .callout-svg-lines {
+    display: none;
+  }
+
+  .callout-header {
+    font-size: 10px;
+  }
+
+  .callout-desc {
+    font-size: 11px;
+  }
+}
+
+/* Chapter titles slide in on activation only; on deactivation the block fades
+   without sliding back, so no half-clipped ghost line appears mid-transition. */
+.chapter-block .line-inner {
+  transform: translateY(0%);
+  transition: none;
+}
+.chapter-block.active .line-inner {
+  animation: chapterLineUp 0.9s var(--ease-out) both;
+}
+@keyframes chapterLineUp {
+  from { transform: translateY(100%); }
+  to { transform: translateY(0%); }
+}
