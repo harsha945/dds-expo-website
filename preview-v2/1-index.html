@@ -1,0 +1,612 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0">
+  <title>DDS EXPO — 100% AI-Driven Digital Marketing Agency</title>
+  <meta name="description" content="DDS EXPO is a 100% AI-driven digital marketing agency offering poster and flyer design, video editing, website building, lead generation, and AI voice agents.">
+
+  <!-- Open Graph / Meta -->
+  <meta property="og:title" content="DDS EXPO — 100% AI-Driven Digital Marketing Agency">
+  <meta property="og:description" content="100% AI-driven digital marketing agency offering poster and flyer design, video editing, website building, lead generation, and AI voice agents.">
+  <meta property="og:type" content="website">
+
+  <!-- Google Fonts: Space Grotesk, Inter, JetBrains Mono -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500;600&family=Space+Grotesk:wght@500;600;700&display=swap" rel="stylesheet">
+
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+
+  <!-- =========================================================================
+       TOP GLOBAL HEADER
+       ========================================================================= -->
+  <header class="site-header" id="siteHeader">
+    <div class="header-container">
+      <a href="#hero" class="brand-link" aria-label="DDS EXPO Home">
+        <img src="assets/brand/dds_logo.png" alt="DDS EXPO" class="brand-logo" width="160" height="32">
+        <span class="brand-status-chip">
+          <span class="status-pulse-dot"></span>
+          100% AI-DRIVEN
+        </span>
+      </a>
+
+      <!-- Desktop Scene Nav Links -->
+      <nav class="scene-nav" aria-label="Scene navigation">
+        <a href="#hero" class="nav-pill active" data-nav-scene="hero">Hero</a>
+        <a href="#poster" class="nav-pill" data-nav-scene="poster">Posters</a>
+        <a href="#videoedit" class="nav-pill" data-nav-scene="videoedit">Video Edit</a>
+        <a href="#website" class="nav-pill" data-nav-scene="website">Websites</a>
+        <a href="#leads" class="nav-pill" data-nav-scene="leads">Lead Gen</a>
+        <a href="#voice" class="nav-pill" data-nav-scene="voice">Voice Agents</a>
+        <a href="#finale" class="nav-pill" data-nav-scene="finale">Contact</a>
+      </nav>
+
+      <!-- Action Utilities -->
+      <div class="header-actions">
+        <!-- Sound Toggle Button -->
+        <button type="button" class="sound-toggle-btn is-muted" id="soundToggleBtn" aria-label="Toggle Sound" title="Click to unmute robot voice">
+          <span class="sound-icon-wrap" aria-hidden="true">
+            <svg class="icon-sound-off" viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2">
+              <polygon points="11 5 6 9 2 9 2 15 6 15 11 19 11 5"></polygon>
+              <line x1="23" y1="9" x2="17" y2="15"></line>
+              <line x1="17" y1="9" x2="23" y2="15"></line>
+            </svg>
+            <svg class="icon-sound-on" viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2">
+              <polygon points="11 5 6 9 2 9 2 15 6 15 11 19 11 5"></polygon>
+              <path d="M15.54 8.46a5 5 0 0 1 0 7.07"></path>
+              <path d="M19.07 4.93a10 10 0 0 1 0 14.14"></path>
+            </svg>
+          </span>
+          <span class="sound-btn-text" id="soundBtnText">Sound: Off</span>
+        </button>
+
+        <!-- Direct WhatsApp CTA -->
+        <a href="https://wa.me/919966994679" target="_blank" rel="noopener noreferrer" class="header-cta-btn" aria-label="Chat on WhatsApp">
+          <svg class="whatsapp-icon" viewBox="0 0 24 24" width="16" height="16" fill="currentColor">
+            <path d="M12.04 2c-5.46 0-9.91 4.45-9.91 9.91 0 1.75.46 3.45 1.32 4.95L2.05 22l5.25-1.38c1.45.79 3.08 1.21 4.74 1.21 5.46 0 9.91-4.45 9.91-9.91 0-2.65-1.03-5.14-2.9-7.01A9.816 9.816 0 0 0 12.04 2zm.01 1.67c4.55 0 8.25 3.7 8.25 8.24 0 2.2-.86 4.28-2.42 5.83a8.196 8.196 0 0 1-5.83 2.41c-1.48 0-2.93-.4-4.2-1.15l-.3-.18-3.12.82.83-3.04-.2-.31a8.188 8.188 0 0 1-1.26-4.38c0-4.54 3.7-8.24 8.25-8.24zm4.52 11.66c-.25-.13-1.47-.72-1.7-.81-.23-.08-.39-.13-.56.13-.17.25-.64.81-.79.97-.14.17-.29.19-.54.06-.25-.13-1.06-.39-2.02-1.25-.75-.67-1.25-1.5-1.4-1.75-.14-.25-.02-.39.11-.51.11-.11.25-.29.38-.44.13-.14.17-.25.25-.42.08-.17.04-.31-.02-.44-.06-.13-.56-1.34-.76-1.84-.2-.49-.4-.42-.56-.43h-.48c-.17 0-.44.06-.67.31-.23.25-.88.86-.88 2.1 0 1.24.9 2.44 1.03 2.61.13.17 1.78 2.71 4.3 3.8.6.26 1.07.42 1.44.53.61.19 1.16.17 1.6.1.49-.07 1.47-.6 1.68-1.18.21-.58.21-1.07.15-1.18-.06-.12-.22-.19-.47-.32z"/>
+          </svg>
+          <span>WhatsApp</span>
+        </a>
+      </div>
+    </div>
+
+    <!-- Active Loading / Stream Indicator Bar -->
+    <div class="header-loader-track" aria-hidden="true">
+      <div class="header-loader-bar" id="headerLoaderBar"></div>
+    </div>
+  </header>
+
+  <!-- =========================================================================
+       SCROLL PROGRESS TRACKER (Desktop Floating HUD)
+       ========================================================================= -->
+  <aside class="side-progress-hud" aria-hidden="true">
+    <div class="hud-step-marker" data-hud="hero"><span class="hud-dot"></span><span class="hud-label">01 // HERO</span></div>
+    <div class="hud-step-marker" data-hud="poster"><span class="hud-dot"></span><span class="hud-label">02 // POSTER</span></div>
+    <div class="hud-step-marker" data-hud="videoedit"><span class="hud-dot"></span><span class="hud-label">03 // VIDEO</span></div>
+    <div class="hud-step-marker" data-hud="website"><span class="hud-dot"></span><span class="hud-label">04 // WEB</span></div>
+    <div class="hud-step-marker" data-hud="leads"><span class="hud-dot"></span><span class="hud-label">05 // LEADS</span></div>
+    <div class="hud-step-marker" data-hud="voice"><span class="hud-dot"></span><span class="hud-label">06 // VOICE</span></div>
+    <div class="hud-step-marker" data-hud="finale"><span class="hud-dot"></span><span class="hud-label">07 // FINALE</span></div>
+  </aside>
+
+  <!-- =========================================================================
+       MAIN SCROLLYTELLING CONTAINER — UNIFIED CINEMATIC COMPOSITIONS
+       ========================================================================= -->
+  <main class="scrolly-main" id="scrollyMain">
+
+    <!-- -----------------------------------------------------------------------
+         SCENE 1: HERO
+         Robot greets visitor with animated mouth light-bar and wave.
+         Full-bleed integrated composition: canvas fills the scene,
+         editorial sits on the left in the robot's natural negative space.
+         Audio: hero_hi.wav plays at most once when in view.
+         ----------------------------------------------------------------------- -->
+    <section class="scene-section" id="hero" data-scene="hero" aria-label="Hero Scene">
+      <div class="scene-sticky-stage">
+        <!-- Cinematic Canvas Stage Layer -->
+        <div class="stage-canvas-wrap">
+          <canvas class="scene-stage-canvas" id="canvas-hero" width="1280" height="712" aria-label="DDS EXPO humanoid AI robot greeting visitor in a bright technological studio"></canvas>
+          <div class="stage-scrim stage-scrim--left" aria-hidden="true"></div>
+          <div class="stage-ambient-glow" aria-hidden="true"></div>
+        </div>
+
+        <!-- Integrated Editorial Composition (Negative Space) -->
+        <div class="scene-composition">
+          <div class="scene-editorial scene-editorial--left">
+            <div class="scene-badge">
+              <span class="badge-index">01 / 06</span>
+              <span class="badge-text">AI-DRIVEN MARKETING AGENCY</span>
+            </div>
+
+            <h1 class="scene-title">
+              Meet Your <span class="highlight-blue">100% AI-Driven</span> Marketing Agency
+            </h1>
+
+            <p class="scene-desc">
+              DDS EXPO is a 100% AI-driven digital marketing agency. We provide creative design and marketing services for your business, including poster and flyer design, video editing, website building, lead generation, and AI voice agents.
+            </p>
+
+            <div class="scene-features-list">
+              <div class="feature-item">
+                <span class="feature-bullet"></span>
+                <span class="feature-name">Poster &amp; Flyer Design</span>
+                <span class="feature-desc">Custom visual designs and promotional flyers for events and campaigns</span>
+              </div>
+              <div class="feature-item">
+                <span class="feature-bullet"></span>
+                <span class="feature-name">Video Editing &amp; Websites</span>
+                <span class="feature-desc">Short-form video editing and responsive business websites</span>
+              </div>
+              <div class="feature-item">
+                <span class="feature-bullet"></span>
+                <span class="feature-name">Lead Generation &amp; Voice</span>
+                <span class="feature-desc">Targeted marketing campaigns and interactive AI voice agent solutions</span>
+              </div>
+            </div>
+
+            <!-- Scroll Cue -->
+            <div class="scene-scroll-cue" aria-hidden="true">
+              <span class="cue-mouse"><span class="cue-wheel"></span></span>
+              <span class="cue-text">Scroll to inspect services</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- -----------------------------------------------------------------------
+         SCENE 2: POSTER DESIGN
+         Robot holds DDS EXPO flyer/poster.
+         Full-bleed integrated composition: canvas fills the scene,
+         editorial sits on the left in the robot's natural negative space.
+         ----------------------------------------------------------------------- -->
+    <section class="scene-section" id="poster" data-scene="poster" aria-label="Poster Design Scene">
+      <div class="scene-sticky-stage">
+        <!-- Cinematic Canvas Stage Layer -->
+        <div class="stage-canvas-wrap">
+          <canvas class="scene-stage-canvas" id="canvas-poster" width="1280" height="712" aria-label="AI humanoid holding DDS EXPO professional flyer and presenting it"></canvas>
+          <div class="stage-scrim stage-scrim--left" aria-hidden="true"></div>
+          <div class="stage-ambient-glow" aria-hidden="true"></div>
+        </div>
+
+        <!-- Integrated Editorial Composition (Negative Space) -->
+        <div class="scene-composition">
+          <div class="scene-editorial scene-editorial--left">
+            <div class="scene-badge">
+              <span class="badge-index">02 / 06</span>
+              <span class="badge-text">POSTER &amp; FLYER DESIGN</span>
+            </div>
+
+            <h2 class="scene-title">
+              AI Poster &amp; Flyer <span class="highlight-blue">Designing</span>
+            </h2>
+
+            <p class="scene-desc">
+              Custom poster and flyer design for business events, announcements, and marketing campaigns. DDS EXPO creates visual graphics tailored to your business needs and promotional goals.
+            </p>
+
+            <div class="scene-features-list">
+              <div class="feature-item">
+                <span class="feature-bullet"></span>
+                <span class="feature-name">Event &amp; Promotional Posters</span>
+                <span class="feature-desc">Designs created for business announcements, product releases, and public events</span>
+              </div>
+              <div class="feature-item">
+                <span class="feature-bullet"></span>
+                <span class="feature-name">Marketing Flyers</span>
+                <span class="feature-desc">Digital and printable flyer layouts crafted to showcase your business offerings</span>
+              </div>
+              <div class="feature-item">
+                <span class="feature-bullet"></span>
+                <span class="feature-name">AI-Assisted Visuals</span>
+                <span class="feature-desc">Visual assets created using AI design tools to match your brand style</span>
+              </div>
+            </div>
+
+            <div class="scene-meta-pills">
+              <span class="meta-pill">Event Posters</span>
+              <span class="meta-pill">Marketing Flyers</span>
+              <span class="meta-pill">Digital Graphics</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- -----------------------------------------------------------------------
+         SCENE 3: VIDEO EDITING
+         Robot typing/editing at computer workstation.
+         Full-bleed integrated composition: canvas fills the scene,
+         editorial sits on the left in the console negative space.
+         ----------------------------------------------------------------------- -->
+    <section class="scene-section" id="videoedit" data-scene="videoedit" aria-label="Video Editing Scene">
+      <div class="scene-sticky-stage">
+        <!-- Cinematic Canvas Stage Layer -->
+        <div class="stage-canvas-wrap">
+          <canvas class="scene-stage-canvas" id="canvas-videoedit" width="1280" height="712" aria-label="AI humanoid editing video timelines at a digital production console"></canvas>
+          <div class="stage-scrim stage-scrim--left" aria-hidden="true"></div>
+          <div class="stage-ambient-glow" aria-hidden="true"></div>
+        </div>
+
+        <!-- Integrated Editorial Composition (Negative Space) -->
+        <div class="scene-composition">
+          <div class="scene-editorial scene-editorial--left">
+            <div class="scene-badge">
+              <span class="badge-index">03 / 06</span>
+              <span class="badge-text">VIDEO EDITING SERVICE</span>
+            </div>
+
+            <h2 class="scene-title">
+              AI-Driven <span class="highlight-blue">Video Editing</span>
+            </h2>
+
+            <p class="scene-desc">
+              Video editing services for promotional content and social media. We edit raw clips into clear, engaging videos suited for marketing campaigns and online platforms.
+            </p>
+
+            <div class="scene-features-list">
+              <div class="feature-item">
+                <span class="feature-bullet"></span>
+                <span class="feature-name">Social Media Videos</span>
+                <span class="feature-desc">Video edits formatted for short-form platforms including Reels and Shorts</span>
+              </div>
+              <div class="feature-item">
+                <span class="feature-bullet"></span>
+                <span class="feature-name">Subtitles &amp; Captions</span>
+                <span class="feature-desc">Text captions and on-screen titles added to make videos clear for all viewers</span>
+              </div>
+              <div class="feature-item">
+                <span class="feature-bullet"></span>
+                <span class="feature-name">Paced Cuts &amp; Audio</span>
+                <span class="feature-desc">Clean transitions, footage trimming, and balanced background audio</span>
+              </div>
+            </div>
+
+            <div class="scene-meta-pills">
+              <span class="meta-pill">Reels &amp; Shorts</span>
+              <span class="meta-pill">Promotional Videos</span>
+              <span class="meta-pill">Social Clips</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- -----------------------------------------------------------------------
+         SCENE 4: WEBSITE DESIGN
+         Robot assembling digital web layout mid-air.
+         Full-bleed integrated composition: canvas fills the scene,
+         editorial sits on the left in the assembly negative space.
+         ----------------------------------------------------------------------- -->
+    <section class="scene-section" id="website" data-scene="website" aria-label="Website Design Scene">
+      <div class="scene-sticky-stage">
+        <!-- Cinematic Canvas Stage Layer -->
+        <div class="stage-canvas-wrap">
+          <canvas class="scene-stage-canvas" id="canvas-website" width="1280" height="712" aria-label="AI humanoid assembling floating web interface components"></canvas>
+          <div class="stage-scrim stage-scrim--left" aria-hidden="true"></div>
+          <div class="stage-ambient-glow" aria-hidden="true"></div>
+        </div>
+
+        <!-- Integrated Editorial Composition (Negative Space) -->
+        <div class="scene-composition">
+          <div class="scene-editorial scene-editorial--left">
+            <div class="scene-badge">
+              <span class="badge-index">04 / 06</span>
+              <span class="badge-text">WEBSITE DESIGN &amp; BUILDING</span>
+            </div>
+
+            <h2 class="scene-title">
+              Website &amp; <span class="highlight-blue">Landing Page</span> Design
+            </h2>
+
+            <p class="scene-desc">
+              Website and landing page building to establish your online presence. DDS EXPO creates responsive web pages that present your business clearly and give visitors direct ways to get in touch.
+            </p>
+
+            <div class="scene-features-list">
+              <div class="feature-item">
+                <span class="feature-bullet"></span>
+                <span class="feature-name">Responsive Layouts</span>
+                <span class="feature-desc">Clean layouts designed to display properly across mobile phones, tablets, and desktop computers</span>
+              </div>
+              <div class="feature-item">
+                <span class="feature-bullet"></span>
+                <span class="feature-name">Landing Pages</span>
+                <span class="feature-desc">Dedicated web pages designed to highlight specific services or marketing campaigns</span>
+              </div>
+              <div class="feature-item">
+                <span class="feature-bullet"></span>
+                <span class="feature-name">Contact &amp; WhatsApp Links</span>
+                <span class="feature-desc">Integration of WhatsApp chat buttons and contact inquiry forms for direct communication</span>
+              </div>
+            </div>
+
+            <div class="scene-meta-pills">
+              <span class="meta-pill">Responsive Design</span>
+              <span class="meta-pill">Landing Pages</span>
+              <span class="meta-pill">WhatsApp Links</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- -----------------------------------------------------------------------
+         SCENE 5: LEAD GENERATION
+         Robot presenting upward growth analytics chart to the right.
+         Integrated composition: Robot on left, chart in center,
+         editorial sits on the right over right-to-left contrast scrim. Zero overlap.
+         ----------------------------------------------------------------------- -->
+    <section class="scene-section" id="leads" data-scene="leads" aria-label="Lead Generation Scene">
+      <div class="scene-sticky-stage">
+        <!-- Cinematic Canvas Stage Layer -->
+        <div class="stage-canvas-wrap">
+          <canvas class="scene-stage-canvas" id="canvas-leads" width="1280" height="712" aria-label="AI humanoid gesturing toward upward-trending growth analytics chart"></canvas>
+          <div class="stage-scrim stage-scrim--right" aria-hidden="true"></div>
+          <div class="stage-ambient-glow" aria-hidden="true"></div>
+        </div>
+
+        <!-- Integrated Editorial Composition (Negative Space) -->
+        <div class="scene-composition">
+          <div class="scene-editorial scene-editorial--right">
+            <div class="scene-badge">
+              <span class="badge-index">05 / 06</span>
+              <span class="badge-text">LEAD GENERATION SERVICE</span>
+            </div>
+
+            <h2 class="scene-title">
+              Targeted <span class="highlight-blue">Lead Generation</span>
+            </h2>
+
+            <p class="scene-desc">
+              Digital lead generation campaigns designed to connect your business with prospective customers. We set up and run targeted marketing to bring qualified customer inquiries to you.
+            </p>
+
+            <div class="scene-features-list">
+              <div class="feature-item">
+                <span class="feature-bullet"></span>
+                <span class="feature-name">Targeted Campaigns</span>
+                <span class="feature-desc">Ad campaigns focused on reaching prospective customers interested in your services</span>
+              </div>
+              <div class="feature-item">
+                <span class="feature-bullet"></span>
+                <span class="feature-name">Inquiry Capture</span>
+                <span class="feature-desc">Directing prospects toward phone and WhatsApp channels so you can respond directly</span>
+              </div>
+              <div class="feature-item">
+                <span class="feature-bullet"></span>
+                <span class="feature-name">Campaign Setup &amp; Review</span>
+                <span class="feature-desc">Structuring marketing campaigns and reviewing results to support business outreach</span>
+              </div>
+            </div>
+
+            <div class="scene-meta-pills">
+              <span class="meta-pill">Targeted Campaigns</span>
+              <span class="meta-pill">Direct Inquiries</span>
+              <span class="meta-pill">Outreach Setup</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- -----------------------------------------------------------------------
+         SCENE 6: AI VOICE AGENTS
+         Robot speaking directly to visitor on left.
+         Harsha's directive: Sound wave beside robot, "Hello" animates in,
+         then "what are you, how can I help you now" greeting text.
+         Integrated composition: Robot on left, voice card & copy on right.
+         Audio: voice_greeting.wav plays only when this scene is in view.
+         ----------------------------------------------------------------------- -->
+    <section class="scene-section" id="voice" data-scene="voice" aria-label="AI Voice Agents Scene">
+      <div class="scene-sticky-stage">
+        <!-- Cinematic Canvas Stage Layer -->
+        <div class="stage-canvas-wrap">
+          <canvas class="scene-stage-canvas" id="canvas-voice" width="1280" height="712" aria-label="AI humanoid speaking directly with animated voice audio lightbar"></canvas>
+          <div class="stage-scrim stage-scrim--right" aria-hidden="true"></div>
+          <div class="stage-ambient-glow" aria-hidden="true"></div>
+        </div>
+
+        <!-- Integrated Editorial & Conversational Interface (Negative Space) -->
+        <div class="scene-composition">
+          <div class="scene-editorial scene-editorial--right">
+            <div class="scene-badge">
+              <span class="badge-index">06 / 06</span>
+              <span class="badge-text">AI VOICE AGENTS</span>
+            </div>
+
+            <h2 class="scene-title">
+              AI Voice <span class="highlight-blue">Agents</span>
+            </h2>
+
+            <p class="scene-desc">
+              Interactive AI voice agents configured to assist callers and answer customer questions. DDS EXPO provides voice automation to handle incoming inquiries and guide callers to your team.
+            </p>
+
+            <!-- Harsha's Directive: Sound Wave + Hello + Greeting dialogue beside robot -->
+            <div class="voice-interactive-card" id="voiceAgentCard">
+              <div class="voice-card-header">
+                <span class="voice-live-dot"></span>
+                <span class="voice-status-title">DDS VOICE AGENT // READY</span>
+                <button type="button" class="voice-play-trigger-btn" id="voicePlayTriggerBtn" aria-label="Play Voice Greeting">
+                  <svg viewBox="0 0 24 24" width="14" height="14" fill="currentColor">
+                    <polygon points="5 3 19 12 5 21 5 3"></polygon>
+                  </svg>
+                  <span>Play Greeting</span>
+                </button>
+              </div>
+
+              <!-- Animated Sound Wave Bars -->
+              <div class="sound-wave-visualizer" id="soundWaveVisualizer" aria-hidden="true">
+                <span class="wave-bar bar-1"></span>
+                <span class="wave-bar bar-2"></span>
+                <span class="wave-bar bar-3"></span>
+                <span class="wave-bar bar-4"></span>
+                <span class="wave-bar bar-5"></span>
+                <span class="wave-bar bar-6"></span>
+                <span class="wave-bar bar-7"></span>
+                <span class="wave-bar bar-8"></span>
+                <span class="wave-bar bar-9"></span>
+                <span class="wave-bar bar-10"></span>
+                <span class="wave-bar bar-11"></span>
+                <span class="wave-bar bar-12"></span>
+              </div>
+
+              <!-- Animated Dialogue Bubbles -->
+              <div class="voice-dialogue-box">
+                <div class="dialogue-bubble bubble-hello is-visible" id="dialogueHello">
+                  <span class="bubble-speaker">AI AGENT:</span>
+                  <span class="bubble-text">“Hello!”</span>
+                </div>
+                <div class="dialogue-bubble bubble-prompt is-visible" id="dialoguePrompt">
+                  <span class="bubble-speaker">AI AGENT:</span>
+                  <span class="bubble-text">“How can I help you today?”</span>
+                </div>
+              </div>
+            </div>
+
+            <div class="scene-features-list">
+              <div class="feature-item">
+                <span class="feature-bullet"></span>
+                <span class="feature-name">Automated Call Answering</span>
+                <span class="feature-desc">AI-powered voice assistance to answer questions and provide information to callers</span>
+              </div>
+              <div class="feature-item">
+                <span class="feature-bullet"></span>
+                <span class="feature-name">Customer Routing</span>
+                <span class="feature-desc">Collect caller inquiry details and route them to your direct phone or WhatsApp</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- =======================================================================
+         FINALE SECTION
+         Harsha's Directive:
+         1. DDS EXPO logo animates in
+         2. Phone numbers (+91 9966994679 primary, +91 96182 31993 secondary) pop in
+         3. Website ddsexpo.com pops in
+         4. Email info@ddsexpo.com pops in
+         5. WhatsApp CTA opens wa.me/919966994679 directly
+         ======================================================================= -->
+    <section class="finale-section" id="finale" aria-label="DDS EXPO Finale Contact and CTA">
+      <div class="finale-ambient-glow" aria-hidden="true"></div>
+
+      <div class="finale-container">
+        <!-- Step 1: Animated DDS EXPO Logo -->
+        <div class="finale-brand-block" id="finaleBrandBlock">
+          <div class="finale-logo-halo" aria-hidden="true"></div>
+          <img src="assets/brand/dds_logo.png" alt="DDS EXPO Logo" class="finale-logo-img" id="finaleLogoImg" width="480" height="97">
+          <div class="finale-tagline">
+            <span class="highlight-blue">100% AI-Driven</span> Digital Marketing Agency
+          </div>
+        </div>
+
+        <!-- Sequential Pop-in Contact Details -->
+        <div class="finale-cards-grid" id="finaleCardsGrid">
+          <!-- Step 2: Phone Number Pop-In -->
+          <a href="tel:+919966994679" class="finale-card card-phone" id="cardPhone" aria-label="Call +91 9966994679 (Secondary: +91 96182 31993)">
+            <div class="card-icon-wrap">
+              <svg viewBox="0 0 24 24" width="24" height="24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"></path>
+              </svg>
+            </div>
+            <div class="card-info">
+              <span class="card-label">DIRECT PHONE</span>
+              <span class="card-val">+91 9966994679</span>
+              <span class="card-secondary" id="secPhoneLink" title="Call secondary line: +91 96182 31993"><span class="card-secondary-label">Secondary:</span> +91 96182 31993</span>
+            </div>
+            <span class="card-arrow">↗</span>
+          </a>
+
+          <!-- Step 3: Website Pop-In -->
+          <a href="https://ddsexpo.com" target="_blank" rel="noopener noreferrer" class="finale-card card-website" id="cardWebsite" aria-label="Visit ddsexpo.com">
+            <div class="card-icon-wrap">
+              <svg viewBox="0 0 24 24" width="24" height="24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <circle cx="12" cy="12" r="10"></circle>
+                <line x1="2" y1="12" x2="22" y2="12"></line>
+                <path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"></path>
+              </svg>
+            </div>
+            <div class="card-info">
+              <span class="card-label">OFFICIAL WEBSITE</span>
+              <span class="card-val">ddsexpo.com</span>
+            </div>
+            <span class="card-arrow">↗</span>
+          </a>
+
+          <!-- Step 4: Official Email Pop-In -->
+          <a href="mailto:info@ddsexpo.com" class="finale-card card-email" id="cardEmail" aria-label="Email info@ddsexpo.com">
+            <div class="card-icon-wrap">
+              <svg viewBox="0 0 24 24" width="24" height="24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"></path>
+                <polyline points="22,6 12,13 2,6"></polyline>
+              </svg>
+            </div>
+            <div class="card-info">
+              <span class="card-label">EMAIL INQUIRIES</span>
+              <span class="card-val">info@ddsexpo.com</span>
+            </div>
+            <span class="card-arrow">↗</span>
+          </a>
+        </div>
+
+        <!-- Step 5: Primary WhatsApp Call-to-Action -->
+        <div class="finale-cta-block" id="finaleCtaBlock">
+          <a href="https://wa.me/919966994679" target="_blank" rel="noopener noreferrer" class="whatsapp-giant-btn" id="whatsappGiantBtn" aria-label="Start WhatsApp conversation with DDS EXPO">
+            <span class="whatsapp-btn-halo" aria-hidden="true"></span>
+            <svg class="giant-wa-icon" viewBox="0 0 24 24" width="30" height="30" fill="currentColor">
+              <path d="M12.04 2c-5.46 0-9.91 4.45-9.91 9.91 0 1.75.46 3.45 1.32 4.95L2.05 22l5.25-1.38c1.45.79 3.08 1.21 4.74 1.21 5.46 0 9.91-4.45 9.91-9.91 0-2.65-1.03-5.14-2.9-7.01A9.816 9.816 0 0 0 12.04 2zm.01 1.67c4.55 0 8.25 3.7 8.25 8.24 0 2.2-.86 4.28-2.42 5.83a8.196 8.196 0 0 1-5.83 2.41c-1.48 0-2.93-.4-4.2-1.15l-.3-.18-3.12.82.83-3.04-.2-.31a8.188 8.188 0 0 1-1.26-4.38c0-4.54 3.7-8.24 8.25-8.24zm4.52 11.66c-.25-.13-1.47-.72-1.7-.81-.23-.08-.39-.13-.56.13-.17.25-.64.81-.79.97-.14.17-.29.19-.54.06-.25-.13-1.06-.39-2.02-1.25-.75-.67-1.25-1.5-1.4-1.75-.14-.25-.02-.39.11-.51.11-.11.25-.29.38-.44.13-.14.17-.25.25-.42.08-.17.04-.31-.02-.44-.06-.13-.56-1.34-.76-1.84-.2-.49-.4-.42-.56-.43h-.48c-.17 0-.44.06-.67.31-.23.25-.88.86-.88 2.1 0 1.24.9 2.44 1.03 2.61.13.17 1.78 2.71 4.3 3.8.6.26 1.07.42 1.44.53.61.19 1.16.17 1.6.1.49-.07 1.47-.6 1.68-1.18.21-.58.21-1.07.15-1.18-.06-.12-.22-.19-.47-.32z"/>
+            </svg>
+            <div class="whatsapp-btn-text">
+              <span class="btn-headline">Start Project on WhatsApp</span>
+              <span class="btn-subline">Talk to the DDS EXPO team - we reply fast.</span>
+            </div>
+            <span class="whatsapp-btn-chevron">→</span>
+          </a>
+        </div>
+
+        <!-- Agency Trust Matrix -->
+        <div class="agency-matrix-strip">
+          <div class="matrix-item">
+            <span class="matrix-val">100%</span>
+            <span class="matrix-desc">AI-Driven Agency</span>
+          </div>
+          <div class="matrix-item">
+            <span class="matrix-val">5</span>
+            <span class="matrix-desc">Core Services</span>
+          </div>
+          <div class="matrix-item">
+            <span class="matrix-val">AI</span>
+            <span class="matrix-desc">Marketing Solutions</span>
+          </div>
+          <div class="matrix-item">
+            <span class="matrix-val">Direct</span>
+            <span class="matrix-desc">WhatsApp Contact</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- Site Footer -->
+      <footer class="site-footer">
+        <div class="footer-inner">
+          <p class="footer-copy">
+            &copy; 2026 <strong>DDS EXPO</strong>. 100% AI-Driven Digital Marketing Agency. All Rights Reserved.
+          </p>
+          <p class="footer-location">
+            ddsexpo.com &bull; info@ddsexpo.com &bull; +91 9966994679, +91 96182 31993
+          </p>
+        </div>
+      </footer>
+    </section>
+
+  </main>
+
+  <script src="main.js"></script>
+</body>
+</html>
